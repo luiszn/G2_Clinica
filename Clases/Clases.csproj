@@ -45,7 +45,8 @@
     <Compile Include="Cita.cs" />
     <Compile Include="Cola.cs" />
     <Compile Include="GestorTurnos.cs" />
-    <Compile Include="Nodo.cs" />
+    <Compile Include="NodoArbol.cs" />
+    <Compile Include="NodoCola.cs" />
     <Compile Include="Paciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
