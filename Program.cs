@@ -10,6 +10,7 @@ namespace G2_Clinica
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Git");
         }
     }
 }
