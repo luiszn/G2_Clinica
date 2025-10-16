@@ -73,5 +73,9 @@ namespace Clases
 
             return lista;
         }
+        public bool TienePacientes()
+        {
+            return frente != null;
+        }
     }
 }

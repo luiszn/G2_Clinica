@@ -37,5 +37,27 @@ namespace Clases
         {
             return colaPacientes.ObtenerTodosLosPacientes();
         }
+        private Paciente pacienteEnAtencion;
+
+        public Paciente LlamarSiguientePaciente()
+        {
+            pacienteEnAtencion = colaPacientes.Desencolar();
+            return pacienteEnAtencion;
+        }
+
+        public Paciente GetPacienteEnAtencion()
+        {
+            return pacienteEnAtencion;
+        }
+
+        public void FinalizarAtencionActual()
+        {
+            pacienteEnAtencion = null;
+        }
+
+        public bool HayPacientesEnEspera()
+        {
+            return colaPacientes.TienePacientes();
+        }
     }
 }

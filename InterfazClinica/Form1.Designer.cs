@@ -251,21 +251,23 @@
             // 
             // btnVerDetalles
             // 
-            this.btnVerDetalles.Location = new System.Drawing.Point(329, 159);
+            this.btnVerDetalles.Location = new System.Drawing.Point(823, 126);
             this.btnVerDetalles.Name = "btnVerDetalles";
             this.btnVerDetalles.Size = new System.Drawing.Size(115, 23);
             this.btnVerDetalles.TabIndex = 2;
             this.btnVerDetalles.Text = "VER DETALLES";
             this.btnVerDetalles.UseVisualStyleBackColor = true;
+            this.btnVerDetalles.Click += new System.EventHandler(this.btnVerDetalles_Click);
             // 
             // btnActualizarLista
             // 
-            this.btnActualizarLista.Location = new System.Drawing.Point(329, 111);
+            this.btnActualizarLista.Location = new System.Drawing.Point(812, 56);
             this.btnActualizarLista.Name = "btnActualizarLista";
             this.btnActualizarLista.Size = new System.Drawing.Size(126, 23);
             this.btnActualizarLista.TabIndex = 1;
             this.btnActualizarLista.Text = "ACTUALIZAR LISTA";
             this.btnActualizarLista.UseVisualStyleBackColor = true;
+            this.btnActualizarLista.Click += new System.EventHandler(this.btnActualizarLista_Click);
             // 
             // dgvColaEspera
             // 
@@ -273,12 +275,12 @@
             this.dgvColaEspera.AllowUserToDeleteRows = false;
             this.dgvColaEspera.AllowUserToResizeColumns = false;
             this.dgvColaEspera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvColaEspera.Location = new System.Drawing.Point(38, 56);
+            this.dgvColaEspera.Location = new System.Drawing.Point(6, 40);
             this.dgvColaEspera.Name = "dgvColaEspera";
             this.dgvColaEspera.ReadOnly = true;
             this.dgvColaEspera.RowHeadersWidth = 51;
             this.dgvColaEspera.RowTemplate.Height = 24;
-            this.dgvColaEspera.Size = new System.Drawing.Size(240, 150);
+            this.dgvColaEspera.Size = new System.Drawing.Size(786, 249);
             this.dgvColaEspera.TabIndex = 0;
             // 
             // gbAtencionActual
@@ -298,19 +300,21 @@
             // 
             this.btnFinalizarAtencion.Location = new System.Drawing.Point(531, 228);
             this.btnFinalizarAtencion.Name = "btnFinalizarAtencion";
-            this.btnFinalizarAtencion.Size = new System.Drawing.Size(226, 23);
+            this.btnFinalizarAtencion.Size = new System.Drawing.Size(322, 79);
             this.btnFinalizarAtencion.TabIndex = 3;
             this.btnFinalizarAtencion.Text = "FINALIZAR ATENCIÓN ACTUAL";
             this.btnFinalizarAtencion.UseVisualStyleBackColor = true;
+            this.btnFinalizarAtencion.Click += new System.EventHandler(this.btnFinalizarAtencion_Click);
             // 
             // btnLlamarSiguiente
             // 
             this.btnLlamarSiguiente.Location = new System.Drawing.Point(80, 228);
             this.btnLlamarSiguiente.Name = "btnLlamarSiguiente";
-            this.btnLlamarSiguiente.Size = new System.Drawing.Size(257, 23);
+            this.btnLlamarSiguiente.Size = new System.Drawing.Size(379, 79);
             this.btnLlamarSiguiente.TabIndex = 2;
             this.btnLlamarSiguiente.Text = "LLAMAR SIGUIENTE PACIENTE";
             this.btnLlamarSiguiente.UseVisualStyleBackColor = true;
+            this.btnLlamarSiguiente.Click += new System.EventHandler(this.btnLlamarSiguiente_Click);
             // 
             // lblPacienteActual
             // 
