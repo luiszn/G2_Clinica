@@ -38,15 +38,25 @@ namespace InterfazClinica
             string dni = txtDni.Text;
             string nombre = txtNombre.Text;
 
-            MessageBox.Show($"Intentando registrar - DNI: '{dni}', Nombre: '{nombre}'");
+            if (dni.Length != 8 || !dni.All(char.IsDigit))
+            {
+                MessageBox.Show("El DNI debe tener 8 dígitos numéricos");
+                return;
+            }
 
+            var pacientes = gestor.ObtenerPacientesEnEspera();
+
+            if (pacientes.Any(p => p.Dni == dni))
+            {
+                MessageBox.Show("Ya existe un paciente con este DNI");
+                return;
+            }
             if (string.IsNullOrEmpty(dni) || string.IsNullOrEmpty(nombre))
             {
                 MessageBox.Show("DNI o Nombre están vacíos");
                 return;
             }
 
-            // Si pasa la validación, continuar con el registro
             int edad = (int)numEdad.Value;
             int prioridad = chkPrioritario.Checked ? 1 : 0;
 
@@ -63,25 +73,21 @@ namespace InterfazClinica
         }
         private void LimpiarFormulario()
         {
-            // Usando tus nombres de controles
             txtDni.Clear();
             txtNombre.Clear();
             numEdad.Value = 0;
             chkPrioritario.Checked = false;
 
-            // Poner foco en el primer campo
             txtDni.Focus();
         }
         private void ValidarFormulario(object sender, EventArgs e)
         {
-            // Habilitar/deshabilitar botón según validación (usando tus nombres)
             bool formularioValido = !string.IsNullOrWhiteSpace(txtDni.Text) &&
                                    !string.IsNullOrWhiteSpace(txtNombre.Text) &&
                                    numEdad.Value > 0;
 
             btnRegistrar.Enabled = formularioValido;
 
-            // Cambiar color del botón según estado
             if (formularioValido)
             {
                 btnRegistrar.BackColor = Color.LightGreen;
@@ -95,7 +101,6 @@ namespace InterfazClinica
         }
         private void ConfigurarDataGridView()
         {
-            // Si tienes un DataGridView llamado dgvPacientesEnEspera
             dgvPacientesEnEspera.Columns.Clear();
 
             dgvPacientesEnEspera.Columns.Add("Dni", "DNI");

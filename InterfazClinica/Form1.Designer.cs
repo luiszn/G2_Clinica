@@ -33,30 +33,43 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvPacientesEnEspera = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numEdad = new System.Windows.Forms.NumericUpDown();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.chkPrioritario = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.AtenciónMédica = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.txtDni = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.numEdad = new System.Windows.Forms.NumericUpDown();
+            this.gbColaEspera = new System.Windows.Forms.GroupBox();
+            this.btnVerDetalles = new System.Windows.Forms.Button();
+            this.btnActualizarLista = new System.Windows.Forms.Button();
+            this.dgvColaEspera = new System.Windows.Forms.DataGridView();
+            this.gbAtencionActual = new System.Windows.Forms.GroupBox();
+            this.btnFinalizarAtencion = new System.Windows.Forms.Button();
+            this.btnLlamarSiguiente = new System.Windows.Forms.Button();
+            this.lblPacienteActual = new System.Windows.Forms.Label();
+            this.lblTituloPaciente = new System.Windows.Forms.Label();
             this.Pestañas.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientesEnEspera)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numEdad)).BeginInit();
+            this.AtenciónMédica.SuspendLayout();
+            this.gbColaEspera.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvColaEspera)).BeginInit();
+            this.gbAtencionActual.SuspendLayout();
             this.SuspendLayout();
             // 
             // Pestañas
             // 
             this.Pestañas.Controls.Add(this.tabPage1);
-            this.Pestañas.Controls.Add(this.tabPage2);
+            this.Pestañas.Controls.Add(this.AtenciónMédica);
             this.Pestañas.Controls.Add(this.tabPage3);
             this.Pestañas.Controls.Add(this.tabPage4);
             this.Pestañas.Location = new System.Drawing.Point(0, 2);
@@ -115,6 +128,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "-- DATOS DEL NUEVO PACIENTE --";
             // 
+            // numEdad
+            // 
+            this.numEdad.Location = new System.Drawing.Point(200, 182);
+            this.numEdad.Name = "numEdad";
+            this.numEdad.Size = new System.Drawing.Size(120, 22);
+            this.numEdad.TabIndex = 8;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(200, 122);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(100, 22);
+            this.txtNombre.TabIndex = 7;
+            // 
+            // txtDni
+            // 
+            this.txtDni.Location = new System.Drawing.Point(200, 66);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(100, 22);
+            this.txtDni.TabIndex = 6;
+            // 
             // btnLimpiar
             // 
             this.btnLimpiar.Location = new System.Drawing.Point(467, 163);
@@ -171,15 +205,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "DNI :";
             // 
-            // tabPage2
+            // AtenciónMédica
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1030, 688);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "AtencionMedica";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.AtenciónMédica.Controls.Add(this.gbColaEspera);
+            this.AtenciónMédica.Controls.Add(this.gbAtencionActual);
+            this.AtenciónMédica.Location = new System.Drawing.Point(4, 25);
+            this.AtenciónMédica.Name = "AtenciónMédica";
+            this.AtenciónMédica.Padding = new System.Windows.Forms.Padding(3);
+            this.AtenciónMédica.Size = new System.Drawing.Size(1030, 688);
+            this.AtenciónMédica.TabIndex = 1;
+            this.AtenciónMédica.Text = "AtencionMedica";
+            this.AtenciónMédica.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
@@ -201,26 +237,98 @@
             this.tabPage4.Text = "Reportes";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // txtDni
+            // gbColaEspera
             // 
-            this.txtDni.Location = new System.Drawing.Point(200, 66);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(100, 22);
-            this.txtDni.TabIndex = 6;
+            this.gbColaEspera.Controls.Add(this.btnVerDetalles);
+            this.gbColaEspera.Controls.Add(this.btnActualizarLista);
+            this.gbColaEspera.Controls.Add(this.dgvColaEspera);
+            this.gbColaEspera.Location = new System.Drawing.Point(4, 382);
+            this.gbColaEspera.Name = "gbColaEspera";
+            this.gbColaEspera.Size = new System.Drawing.Size(1023, 295);
+            this.gbColaEspera.TabIndex = 3;
+            this.gbColaEspera.TabStop = false;
+            this.gbColaEspera.Text = "--COLA DE ESPERA--";
             // 
-            // txtNombre
+            // btnVerDetalles
             // 
-            this.txtNombre.Location = new System.Drawing.Point(200, 122);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 22);
-            this.txtNombre.TabIndex = 7;
+            this.btnVerDetalles.Location = new System.Drawing.Point(329, 159);
+            this.btnVerDetalles.Name = "btnVerDetalles";
+            this.btnVerDetalles.Size = new System.Drawing.Size(115, 23);
+            this.btnVerDetalles.TabIndex = 2;
+            this.btnVerDetalles.Text = "VER DETALLES";
+            this.btnVerDetalles.UseVisualStyleBackColor = true;
             // 
-            // numEdad
+            // btnActualizarLista
             // 
-            this.numEdad.Location = new System.Drawing.Point(200, 182);
-            this.numEdad.Name = "numEdad";
-            this.numEdad.Size = new System.Drawing.Size(120, 22);
-            this.numEdad.TabIndex = 8;
+            this.btnActualizarLista.Location = new System.Drawing.Point(329, 111);
+            this.btnActualizarLista.Name = "btnActualizarLista";
+            this.btnActualizarLista.Size = new System.Drawing.Size(126, 23);
+            this.btnActualizarLista.TabIndex = 1;
+            this.btnActualizarLista.Text = "ACTUALIZAR LISTA";
+            this.btnActualizarLista.UseVisualStyleBackColor = true;
+            // 
+            // dgvColaEspera
+            // 
+            this.dgvColaEspera.AllowUserToAddRows = false;
+            this.dgvColaEspera.AllowUserToDeleteRows = false;
+            this.dgvColaEspera.AllowUserToResizeColumns = false;
+            this.dgvColaEspera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvColaEspera.Location = new System.Drawing.Point(38, 56);
+            this.dgvColaEspera.Name = "dgvColaEspera";
+            this.dgvColaEspera.ReadOnly = true;
+            this.dgvColaEspera.RowHeadersWidth = 51;
+            this.dgvColaEspera.RowTemplate.Height = 24;
+            this.dgvColaEspera.Size = new System.Drawing.Size(240, 150);
+            this.dgvColaEspera.TabIndex = 0;
+            // 
+            // gbAtencionActual
+            // 
+            this.gbAtencionActual.Controls.Add(this.btnFinalizarAtencion);
+            this.gbAtencionActual.Controls.Add(this.btnLlamarSiguiente);
+            this.gbAtencionActual.Controls.Add(this.lblPacienteActual);
+            this.gbAtencionActual.Controls.Add(this.lblTituloPaciente);
+            this.gbAtencionActual.Location = new System.Drawing.Point(5, 12);
+            this.gbAtencionActual.Name = "gbAtencionActual";
+            this.gbAtencionActual.Size = new System.Drawing.Size(1020, 364);
+            this.gbAtencionActual.TabIndex = 2;
+            this.gbAtencionActual.TabStop = false;
+            this.gbAtencionActual.Text = "-- ATENCION ACTUAL-- ";
+            // 
+            // btnFinalizarAtencion
+            // 
+            this.btnFinalizarAtencion.Location = new System.Drawing.Point(531, 228);
+            this.btnFinalizarAtencion.Name = "btnFinalizarAtencion";
+            this.btnFinalizarAtencion.Size = new System.Drawing.Size(226, 23);
+            this.btnFinalizarAtencion.TabIndex = 3;
+            this.btnFinalizarAtencion.Text = "FINALIZAR ATENCIÓN ACTUAL";
+            this.btnFinalizarAtencion.UseVisualStyleBackColor = true;
+            // 
+            // btnLlamarSiguiente
+            // 
+            this.btnLlamarSiguiente.Location = new System.Drawing.Point(80, 228);
+            this.btnLlamarSiguiente.Name = "btnLlamarSiguiente";
+            this.btnLlamarSiguiente.Size = new System.Drawing.Size(257, 23);
+            this.btnLlamarSiguiente.TabIndex = 2;
+            this.btnLlamarSiguiente.Text = "LLAMAR SIGUIENTE PACIENTE";
+            this.btnLlamarSiguiente.UseVisualStyleBackColor = true;
+            // 
+            // lblPacienteActual
+            // 
+            this.lblPacienteActual.AutoSize = true;
+            this.lblPacienteActual.Location = new System.Drawing.Point(347, 149);
+            this.lblPacienteActual.Name = "lblPacienteActual";
+            this.lblPacienteActual.Size = new System.Drawing.Size(192, 16);
+            this.lblPacienteActual.TabIndex = 1;
+            this.lblPacienteActual.Text = "\"Ningún paciente en atención\"  ";
+            // 
+            // lblTituloPaciente
+            // 
+            this.lblTituloPaciente.AutoSize = true;
+            this.lblTituloPaciente.Location = new System.Drawing.Point(77, 67);
+            this.lblTituloPaciente.Name = "lblTituloPaciente";
+            this.lblTituloPaciente.Size = new System.Drawing.Size(175, 16);
+            this.lblTituloPaciente.TabIndex = 0;
+            this.lblTituloPaciente.Text = "PACIENTE EN CONSULTA:";
             // 
             // Form1
             // 
@@ -237,6 +345,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numEdad)).EndInit();
+            this.AtenciónMédica.ResumeLayout(false);
+            this.gbColaEspera.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvColaEspera)).EndInit();
+            this.gbAtencionActual.ResumeLayout(false);
+            this.gbAtencionActual.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -245,7 +358,7 @@
 
         private System.Windows.Forms.TabControl Pestañas;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage AtenciónMédica;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -260,6 +373,15 @@
         private System.Windows.Forms.NumericUpDown numEdad;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.GroupBox gbColaEspera;
+        private System.Windows.Forms.Button btnVerDetalles;
+        private System.Windows.Forms.Button btnActualizarLista;
+        private System.Windows.Forms.DataGridView dgvColaEspera;
+        private System.Windows.Forms.GroupBox gbAtencionActual;
+        private System.Windows.Forms.Button btnFinalizarAtencion;
+        private System.Windows.Forms.Button btnLlamarSiguiente;
+        private System.Windows.Forms.Label lblPacienteActual;
+        private System.Windows.Forms.Label lblTituloPaciente;
     }
 }
 
