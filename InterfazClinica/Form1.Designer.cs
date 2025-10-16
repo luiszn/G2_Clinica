@@ -30,18 +30,18 @@
         {
             this.Pestañas = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvPacientesEnEspera = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.CheckBox = new System.Windows.Forms.CheckBox();
+            this.chkPrioritario = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.Pestañas.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -73,6 +73,96 @@
             this.tabPage1.Text = "RegistroCliente";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvPacientesEnEspera);
+            this.groupBox2.Location = new System.Drawing.Point(10, 332);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1013, 347);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "-- PACIENTES EN ESPERA --";
+            // 
+            // dgvPacientesEnEspera
+            // 
+            this.dgvPacientesEnEspera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPacientesEnEspera.Location = new System.Drawing.Point(7, 34);
+            this.dgvPacientesEnEspera.Name = "dgvPacientesEnEspera";
+            this.dgvPacientesEnEspera.RowHeadersWidth = 51;
+            this.dgvPacientesEnEspera.RowTemplate.Height = 24;
+            this.dgvPacientesEnEspera.Size = new System.Drawing.Size(1000, 307);
+            this.dgvPacientesEnEspera.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnLimpiar);
+            this.groupBox1.Controls.Add(this.btnRegistrar);
+            this.groupBox1.Controls.Add(this.chkPrioritario);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(7, 10);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1013, 310);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "-- DATOS DEL NUEVO PACIENTE --";
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(467, 163);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(117, 54);
+            this.btnLimpiar.TabIndex = 5;
+            this.btnLimpiar.Text = "btnLimpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Location = new System.Drawing.Point(472, 77);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(112, 48);
+            this.btnRegistrar.TabIndex = 4;
+            this.btnRegistrar.Text = "btnRegistrar";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            // 
+            // chkPrioritario
+            // 
+            this.chkPrioritario.AutoSize = true;
+            this.chkPrioritario.Location = new System.Drawing.Point(89, 242);
+            this.chkPrioritario.Name = "chkPrioritario";
+            this.chkPrioritario.Size = new System.Drawing.Size(200, 20);
+            this.chkPrioritario.TabIndex = 3;
+            this.chkPrioritario.Text = "Paciente prioritario (Urgente)";
+            this.chkPrioritario.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(86, 182);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Edad :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(86, 122);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Nombre :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(86, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "DNI :";
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -102,96 +192,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Reportes";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dgvPacientesEnEspera);
-            this.groupBox2.Location = new System.Drawing.Point(10, 332);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1013, 347);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "-- PACIENTES EN ESPERA --";
-            // 
-            // dgvPacientesEnEspera
-            // 
-            this.dgvPacientesEnEspera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPacientesEnEspera.Location = new System.Drawing.Point(7, 34);
-            this.dgvPacientesEnEspera.Name = "dgvPacientesEnEspera";
-            this.dgvPacientesEnEspera.RowHeadersWidth = 51;
-            this.dgvPacientesEnEspera.RowTemplate.Height = 24;
-            this.dgvPacientesEnEspera.Size = new System.Drawing.Size(1000, 307);
-            this.dgvPacientesEnEspera.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnLimpiar);
-            this.groupBox1.Controls.Add(this.btnRegistrar);
-            this.groupBox1.Controls.Add(this.CheckBox);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(7, 10);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1013, 310);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "-- DATOS DEL NUEVO PACIENTE --";
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(492, 142);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 5;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.Location = new System.Drawing.Point(472, 77);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
-            this.btnRegistrar.TabIndex = 4;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
-            // 
-            // CheckBox
-            // 
-            this.CheckBox.AutoSize = true;
-            this.CheckBox.Location = new System.Drawing.Point(89, 242);
-            this.CheckBox.Name = "CheckBox";
-            this.CheckBox.Size = new System.Drawing.Size(200, 20);
-            this.CheckBox.TabIndex = 3;
-            this.CheckBox.Text = "Paciente prioritario (Urgente)";
-            this.CheckBox.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(86, 182);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Edad :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 122);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nombre :";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(86, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "DNI :";
             // 
             // Form1
             // 
@@ -223,7 +223,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.CheckBox CheckBox;
+        private System.Windows.Forms.CheckBox chkPrioritario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
