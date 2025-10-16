@@ -42,11 +42,15 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.txtDni = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.numEdad = new System.Windows.Forms.NumericUpDown();
             this.Pestañas.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientesEnEspera)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numEdad)).BeginInit();
             this.SuspendLayout();
             // 
             // Pestañas
@@ -95,6 +99,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.numEdad);
+            this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Controls.Add(this.txtDni);
             this.groupBox1.Controls.Add(this.btnLimpiar);
             this.groupBox1.Controls.Add(this.btnRegistrar);
             this.groupBox1.Controls.Add(this.chkPrioritario);
@@ -114,8 +121,9 @@
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(117, 54);
             this.btnLimpiar.TabIndex = 5;
-            this.btnLimpiar.Text = "btnLimpiar";
+            this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnRegistrar
             // 
@@ -123,7 +131,7 @@
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(112, 48);
             this.btnRegistrar.TabIndex = 4;
-            this.btnRegistrar.Text = "btnRegistrar";
+            this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             // 
             // chkPrioritario
@@ -193,6 +201,27 @@
             this.tabPage4.Text = "Reportes";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // txtDni
+            // 
+            this.txtDni.Location = new System.Drawing.Point(200, 66);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(100, 22);
+            this.txtDni.TabIndex = 6;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(200, 122);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(100, 22);
+            this.txtNombre.TabIndex = 7;
+            // 
+            // numEdad
+            // 
+            this.numEdad.Location = new System.Drawing.Point(200, 182);
+            this.numEdad.Name = "numEdad";
+            this.numEdad.Size = new System.Drawing.Size(120, 22);
+            this.numEdad.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -207,6 +236,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientesEnEspera)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numEdad)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -227,6 +257,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numEdad;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtDni;
     }
 }
 

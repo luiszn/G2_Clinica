@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Clases
 {
@@ -58,6 +59,19 @@ namespace Clases
             frente = frente.Siguiente;
             if (frente == null) fin = null;
             return p;
+        }
+        public List<Paciente> ObtenerTodosLosPacientes()
+        {
+            var lista = new List<Paciente>();
+            var actual = frente;
+
+            while (actual != null)
+            {
+                lista.Add(actual.Dato);
+                actual = actual.Siguiente;
+            }
+
+            return lista;
         }
     }
 }

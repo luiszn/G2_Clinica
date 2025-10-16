@@ -33,5 +33,9 @@ namespace Clases
         {
             return arbolCitas.InOrden();
         }
+        public List<Paciente> ObtenerPacientesEnEspera()
+        {
+            return colaPacientes.ObtenerTodosLosPacientes();
+        }
     }
 }
