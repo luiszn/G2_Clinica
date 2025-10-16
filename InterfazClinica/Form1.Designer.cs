@@ -251,23 +251,21 @@
             // 
             // btnVerDetalles
             // 
-            this.btnVerDetalles.Location = new System.Drawing.Point(823, 126);
+            this.btnVerDetalles.Location = new System.Drawing.Point(832, 174);
             this.btnVerDetalles.Name = "btnVerDetalles";
-            this.btnVerDetalles.Size = new System.Drawing.Size(115, 23);
+            this.btnVerDetalles.Size = new System.Drawing.Size(151, 85);
             this.btnVerDetalles.TabIndex = 2;
             this.btnVerDetalles.Text = "VER DETALLES";
             this.btnVerDetalles.UseVisualStyleBackColor = true;
-            this.btnVerDetalles.Click += new System.EventHandler(this.btnVerDetalles_Click);
             // 
             // btnActualizarLista
             // 
-            this.btnActualizarLista.Location = new System.Drawing.Point(812, 56);
+            this.btnActualizarLista.Location = new System.Drawing.Point(832, 73);
             this.btnActualizarLista.Name = "btnActualizarLista";
-            this.btnActualizarLista.Size = new System.Drawing.Size(126, 23);
+            this.btnActualizarLista.Size = new System.Drawing.Size(151, 84);
             this.btnActualizarLista.TabIndex = 1;
             this.btnActualizarLista.Text = "ACTUALIZAR LISTA";
             this.btnActualizarLista.UseVisualStyleBackColor = true;
-            this.btnActualizarLista.Click += new System.EventHandler(this.btnActualizarLista_Click);
             // 
             // dgvColaEspera
             // 
@@ -304,7 +302,6 @@
             this.btnFinalizarAtencion.TabIndex = 3;
             this.btnFinalizarAtencion.Text = "FINALIZAR ATENCIÓN ACTUAL";
             this.btnFinalizarAtencion.UseVisualStyleBackColor = true;
-            this.btnFinalizarAtencion.Click += new System.EventHandler(this.btnFinalizarAtencion_Click);
             // 
             // btnLlamarSiguiente
             // 
@@ -314,12 +311,11 @@
             this.btnLlamarSiguiente.TabIndex = 2;
             this.btnLlamarSiguiente.Text = "LLAMAR SIGUIENTE PACIENTE";
             this.btnLlamarSiguiente.UseVisualStyleBackColor = true;
-            this.btnLlamarSiguiente.Click += new System.EventHandler(this.btnLlamarSiguiente_Click);
             // 
             // lblPacienteActual
             // 
             this.lblPacienteActual.AutoSize = true;
-            this.lblPacienteActual.Location = new System.Drawing.Point(347, 149);
+            this.lblPacienteActual.Location = new System.Drawing.Point(374, 141);
             this.lblPacienteActual.Name = "lblPacienteActual";
             this.lblPacienteActual.Size = new System.Drawing.Size(192, 16);
             this.lblPacienteActual.TabIndex = 1;
