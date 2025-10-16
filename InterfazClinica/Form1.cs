@@ -21,7 +21,7 @@ namespace InterfazClinica
 
             gestor = new GestorTurnos();
             ConfigurarEventosPestaña1();
-            ConfigurarPestaña2(); // ← NUEVA LÍNEA
+            ConfigurarPestaña2(); 
         }
         private void ConfigurarEventosPestaña1()
         {
@@ -294,7 +294,6 @@ namespace InterfazClinica
                         tiempoEstimado
                     );
 
-                    // Colorear según prioridad
                     if (paciente.Prioridad == 1)
                     {
                         dgvColaEspera.Rows[rowIndex].DefaultCellStyle.BackColor = Color.LightCoral;
@@ -312,8 +311,6 @@ namespace InterfazClinica
 
                     orden++;
                 }
-
-                // Si no hay pacientes, mostrar mensaje
                 if (pacientes.Count == 0)
                 {
                     dgvColaEspera.Rows.Add("", "No hay pacientes en espera", "", "", "");
@@ -328,12 +325,11 @@ namespace InterfazClinica
 
         private string CalcularTiempoEspera(int orden, int prioridad)
         {
-            // Cálculo simple del tiempo de espera estimado
-            int tiempoBase = orden * 15; // 15 minutos por paciente
+            int tiempoBase = orden * 15; 
 
             if (prioridad == 1)
             {
-                tiempoBase = Math.Max(5, (orden - 1) * 10); // Prioritarios esperan menos
+                tiempoBase = Math.Max(5, (orden - 1) * 10); 
             }
 
             return $"{tiempoBase} min";
