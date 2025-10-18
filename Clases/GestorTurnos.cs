@@ -7,17 +7,20 @@ namespace Clases
     {
         private Cola colaPacientes;
         private Arbol arbolCitas;
+        private List<HistorialAtencion> historialCompleto;
+        private Paciente pacienteEnAtencion;
 
         public GestorTurnos()
         {
             colaPacientes = new Cola();
             arbolCitas = new Arbol();
+            historialCompleto = new List<HistorialAtencion>();
+            pacienteEnAtencion = null;
         }
 
         public void AgregarPaciente(Paciente paciente)
         {
             colaPacientes.Encolar(paciente);
-
         }
 
         public Paciente AtenderPaciente()
@@ -29,15 +32,16 @@ namespace Clases
         {
             arbolCitas.Insertar(cita);
         }
+
         public List<Cita> ListarCitas()
         {
             return arbolCitas.InOrden();
         }
+
         public List<Paciente> ObtenerPacientesEnEspera()
         {
             return colaPacientes.ObtenerTodosLosPacientes();
         }
-        private Paciente pacienteEnAtencion;
 
         public Paciente LlamarSiguientePaciente()
         {
@@ -58,6 +62,26 @@ namespace Clases
         public bool HayPacientesEnEspera()
         {
             return colaPacientes.TienePacientes();
+        }
+
+        public void RegistrarHistorial(string diagnostico, string tratamiento, string estado, string comentarios)
+        {
+            if (pacienteEnAtencion != null)
+            {
+                var nuevoHistorial = new HistorialAtencion(pacienteEnAtencion, diagnostico, tratamiento, estado, comentarios);
+                historialCompleto.Add(nuevoHistorial);
+                pacienteEnAtencion = null; // Limpiar después de guardar
+            }
+        }
+
+        public List<HistorialAtencion> GetHistorialCompleto()
+        {
+            return historialCompleto;
+        }
+
+        public Paciente GetPacienteParaHistorial()
+        {
+            return pacienteEnAtencion;
         }
     }
 }
