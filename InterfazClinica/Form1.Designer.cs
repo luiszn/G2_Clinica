@@ -113,6 +113,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.LightGray;
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
@@ -121,18 +122,17 @@
             this.tabPage1.Size = new System.Drawing.Size(1030, 688);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "RegistroCliente";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvPacientesEnEspera);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.groupBox2.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.groupBox2.Location = new System.Drawing.Point(483, 10);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(540, 669);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "-- PACIENTES EN ESPERA --";
+            this.groupBox2.Text = "PACIENTES EN ESPERA ";
             // 
             // dgvPacientesEnEspera
             // 
@@ -142,7 +142,7 @@
             this.dgvPacientesEnEspera.Name = "dgvPacientesEnEspera";
             this.dgvPacientesEnEspera.RowHeadersWidth = 51;
             this.dgvPacientesEnEspera.RowTemplate.Height = 24;
-            this.dgvPacientesEnEspera.Size = new System.Drawing.Size(498, 624);
+            this.dgvPacientesEnEspera.Size = new System.Drawing.Size(515, 624);
             this.dgvPacientesEnEspera.TabIndex = 0;
             // 
             // groupBox1
@@ -156,13 +156,13 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.groupBox1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(7, 10);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(470, 669);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "-- DATOS DEL NUEVO PACIENTE --";
+            this.groupBox1.Text = "DATOS DEL NUEVO PACIENTE";
             // 
             // numEdad
             // 
@@ -190,6 +190,10 @@
             // btnLimpiar
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnLimpiar.Location = new System.Drawing.Point(238, 386);
@@ -203,6 +207,10 @@
             // btnRegistrar
             // 
             this.btnRegistrar.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnRegistrar.FlatAppearance.BorderSize = 0;
+            this.btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnRegistrar.Location = new System.Drawing.Point(6, 386);
@@ -255,6 +263,7 @@
             // 
             // tabAtencion
             // 
+            this.tabAtencion.BackColor = System.Drawing.Color.LightGray;
             this.tabAtencion.Controls.Add(this.gbColaEspera);
             this.tabAtencion.Controls.Add(this.gbAtencionActual);
             this.tabAtencion.Location = new System.Drawing.Point(4, 25);
@@ -263,26 +272,29 @@
             this.tabAtencion.Size = new System.Drawing.Size(1030, 688);
             this.tabAtencion.TabIndex = 1;
             this.tabAtencion.Text = "AtencionMedica";
-            this.tabAtencion.UseVisualStyleBackColor = true;
             // 
             // gbColaEspera
             // 
             this.gbColaEspera.Controls.Add(this.btnVerDetalles);
             this.gbColaEspera.Controls.Add(this.btnActualizarLista);
             this.gbColaEspera.Controls.Add(this.dgvColaEspera);
-            this.gbColaEspera.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.gbColaEspera.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.gbColaEspera.Location = new System.Drawing.Point(4, 382);
             this.gbColaEspera.Name = "gbColaEspera";
             this.gbColaEspera.Size = new System.Drawing.Size(1023, 295);
             this.gbColaEspera.TabIndex = 3;
             this.gbColaEspera.TabStop = false;
-            this.gbColaEspera.Text = "--COLA DE ESPERA--";
+            this.gbColaEspera.Text = "COLA DE ESPERA";
             // 
             // btnVerDetalles
             // 
             this.btnVerDetalles.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnVerDetalles.FlatAppearance.BorderSize = 0;
+            this.btnVerDetalles.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnVerDetalles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnVerDetalles.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVerDetalles.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnVerDetalles.Location = new System.Drawing.Point(812, 170);
+            this.btnVerDetalles.Location = new System.Drawing.Point(812, 161);
             this.btnVerDetalles.Name = "btnVerDetalles";
             this.btnVerDetalles.Size = new System.Drawing.Size(185, 89);
             this.btnVerDetalles.TabIndex = 2;
@@ -292,6 +304,10 @@
             // btnActualizarLista
             // 
             this.btnActualizarLista.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnActualizarLista.FlatAppearance.BorderSize = 0;
+            this.btnActualizarLista.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnActualizarLista.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnActualizarLista.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnActualizarLista.ForeColor = System.Drawing.SystemColors.Control;
             this.btnActualizarLista.Location = new System.Drawing.Point(812, 67);
             this.btnActualizarLista.Name = "btnActualizarLista";
@@ -321,17 +337,21 @@
             this.gbAtencionActual.Controls.Add(this.btnLlamarSiguiente);
             this.gbAtencionActual.Controls.Add(this.lblPacienteActual);
             this.gbAtencionActual.Controls.Add(this.lblTituloPaciente);
-            this.gbAtencionActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.gbAtencionActual.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.gbAtencionActual.Location = new System.Drawing.Point(5, 12);
             this.gbAtencionActual.Name = "gbAtencionActual";
             this.gbAtencionActual.Size = new System.Drawing.Size(1020, 364);
             this.gbAtencionActual.TabIndex = 2;
             this.gbAtencionActual.TabStop = false;
-            this.gbAtencionActual.Text = "-- ATENCION ACTUAL-- ";
+            this.gbAtencionActual.Text = "ATENCION ACTUAL";
             // 
             // btnFinalizarAtencion
             // 
             this.btnFinalizarAtencion.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnFinalizarAtencion.FlatAppearance.BorderSize = 0;
+            this.btnFinalizarAtencion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnFinalizarAtencion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnFinalizarAtencion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFinalizarAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
             this.btnFinalizarAtencion.ForeColor = System.Drawing.SystemColors.Control;
             this.btnFinalizarAtencion.Location = new System.Drawing.Point(531, 228);
@@ -344,6 +364,10 @@
             // btnLlamarSiguiente
             // 
             this.btnLlamarSiguiente.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnLlamarSiguiente.FlatAppearance.BorderSize = 0;
+            this.btnLlamarSiguiente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnLlamarSiguiente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnLlamarSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLlamarSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
             this.btnLlamarSiguiente.ForeColor = System.Drawing.SystemColors.Control;
             this.btnLlamarSiguiente.Location = new System.Drawing.Point(86, 228);
@@ -375,6 +399,7 @@
             // 
             // tabHistorial
             // 
+            this.tabHistorial.BackColor = System.Drawing.Color.LightGray;
             this.tabHistorial.Controls.Add(this.groupBox4);
             this.tabHistorial.Controls.Add(this.lblPacienteAtendido);
             this.tabHistorial.Controls.Add(this.groupBox3);
@@ -384,12 +409,12 @@
             this.tabHistorial.Size = new System.Drawing.Size(1030, 688);
             this.tabHistorial.TabIndex = 2;
             this.tabHistorial.Text = "HistorialAtencion";
-            this.tabHistorial.UseVisualStyleBackColor = true;
             this.tabHistorial.Enter += new System.EventHandler(this.tabHistorial_Enter);
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dgvHistorialCompleto);
+            this.groupBox4.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.groupBox4.Location = new System.Drawing.Point(4, 374);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(997, 298);
@@ -399,18 +424,19 @@
             // 
             // dgvHistorialCompleto
             // 
+            this.dgvHistorialCompleto.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dgvHistorialCompleto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHistorialCompleto.Location = new System.Drawing.Point(30, 56);
+            this.dgvHistorialCompleto.Location = new System.Drawing.Point(16, 29);
             this.dgvHistorialCompleto.Name = "dgvHistorialCompleto";
             this.dgvHistorialCompleto.RowHeadersWidth = 51;
             this.dgvHistorialCompleto.RowTemplate.Height = 24;
-            this.dgvHistorialCompleto.Size = new System.Drawing.Size(954, 227);
+            this.dgvHistorialCompleto.Size = new System.Drawing.Size(991, 279);
             this.dgvHistorialCompleto.TabIndex = 0;
             // 
             // lblPacienteAtendido
             // 
             this.lblPacienteAtendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
-            this.lblPacienteAtendido.Location = new System.Drawing.Point(29, 17);
+            this.lblPacienteAtendido.Location = new System.Drawing.Point(37, 17);
             this.lblPacienteAtendido.Name = "lblPacienteAtendido";
             this.lblPacienteAtendido.Size = new System.Drawing.Size(636, 30);
             this.lblPacienteAtendido.TabIndex = 5;
@@ -439,6 +465,10 @@
             // btnLimpiarHistorial
             // 
             this.btnLimpiarHistorial.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnLimpiarHistorial.FlatAppearance.BorderSize = 0;
+            this.btnLimpiarHistorial.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnLimpiarHistorial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnLimpiarHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLimpiarHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
             this.btnLimpiarHistorial.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnLimpiarHistorial.Location = new System.Drawing.Point(704, 216);
@@ -451,6 +481,10 @@
             // btnGuardarHistorial
             // 
             this.btnGuardarHistorial.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnGuardarHistorial.FlatAppearance.BorderSize = 0;
+            this.btnGuardarHistorial.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnGuardarHistorial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnGuardarHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGuardarHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
             this.btnGuardarHistorial.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnGuardarHistorial.Location = new System.Drawing.Point(704, 126);
@@ -479,7 +513,7 @@
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.Location = new System.Drawing.Point(704, 75);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(121, 31);
+            this.cmbEstado.Size = new System.Drawing.Size(229, 31);
             this.cmbEstado.TabIndex = 6;
             // 
             // lblComentarios
@@ -531,6 +565,7 @@
             // 
             // tabReportes
             // 
+            this.tabReportes.BackColor = System.Drawing.Color.LightGray;
             this.tabReportes.Controls.Add(this.gbReporteDetallado);
             this.tabReportes.Controls.Add(this.gbEstadisticas);
             this.tabReportes.Location = new System.Drawing.Point(4, 25);
@@ -539,26 +574,28 @@
             this.tabReportes.Size = new System.Drawing.Size(1030, 688);
             this.tabReportes.TabIndex = 3;
             this.tabReportes.Text = "Reportes";
-            this.tabReportes.UseVisualStyleBackColor = true;
             // 
             // gbReporteDetallado
             // 
             this.gbReporteDetallado.Controls.Add(this.txtReporteDetallado);
-            this.gbReporteDetallado.Location = new System.Drawing.Point(4, 408);
+            this.gbReporteDetallado.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.gbReporteDetallado.Location = new System.Drawing.Point(4, 292);
             this.gbReporteDetallado.Name = "gbReporteDetallado";
-            this.gbReporteDetallado.Size = new System.Drawing.Size(1020, 274);
+            this.gbReporteDetallado.Size = new System.Drawing.Size(1020, 390);
             this.gbReporteDetallado.TabIndex = 1;
             this.gbReporteDetallado.TabStop = false;
-            this.gbReporteDetallado.Text = "--REPORTE DETALLADO--";
+            this.gbReporteDetallado.Text = "REPORTE DETALLADO";
             // 
             // txtReporteDetallado
             // 
-            this.txtReporteDetallado.Location = new System.Drawing.Point(38, 39);
+            this.txtReporteDetallado.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtReporteDetallado.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReporteDetallado.Location = new System.Drawing.Point(4, 29);
             this.txtReporteDetallado.Multiline = true;
             this.txtReporteDetallado.Name = "txtReporteDetallado";
             this.txtReporteDetallado.ReadOnly = true;
             this.txtReporteDetallado.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtReporteDetallado.Size = new System.Drawing.Size(894, 196);
+            this.txtReporteDetallado.Size = new System.Drawing.Size(1015, 355);
             this.txtReporteDetallado.TabIndex = 0;
             // 
             // gbEstadisticas
@@ -570,73 +607,93 @@
             this.gbEstadisticas.Controls.Add(this.lblSeguimiento);
             this.gbEstadisticas.Controls.Add(this.lblExitosos);
             this.gbEstadisticas.Controls.Add(this.lblTotalAtendidos);
-            this.gbEstadisticas.Location = new System.Drawing.Point(5, 4);
+            this.gbEstadisticas.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.gbEstadisticas.Location = new System.Drawing.Point(0, 6);
             this.gbEstadisticas.Name = "gbEstadisticas";
-            this.gbEstadisticas.Size = new System.Drawing.Size(1020, 397);
+            this.gbEstadisticas.Size = new System.Drawing.Size(1025, 285);
             this.gbEstadisticas.TabIndex = 0;
             this.gbEstadisticas.TabStop = false;
-            this.gbEstadisticas.Text = "--ESTADISTICAS";
+            this.gbEstadisticas.Text = "ESTADISTICAS";
             // 
             // btnExportarPDF
             // 
-            this.btnExportarPDF.Location = new System.Drawing.Point(413, 204);
+            this.btnExportarPDF.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnExportarPDF.FlatAppearance.BorderSize = 0;
+            this.btnExportarPDF.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnExportarPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnExportarPDF.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExportarPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.btnExportarPDF.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnExportarPDF.Location = new System.Drawing.Point(728, 112);
             this.btnExportarPDF.Name = "btnExportarPDF";
             this.btnExportarPDF.Size = new System.Drawing.Size(225, 121);
             this.btnExportarPDF.TabIndex = 6;
-            this.btnExportarPDF.Text = "EXPORTAR A PDF";
-            this.btnExportarPDF.UseVisualStyleBackColor = true;
+            this.btnExportarPDF.Text = "EXPORTAR A ARCHIVO";
+            this.btnExportarPDF.UseVisualStyleBackColor = false;
             // 
             // btnGenerarReporte
             // 
-            this.btnGenerarReporte.Location = new System.Drawing.Point(413, 54);
+            this.btnGenerarReporte.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnGenerarReporte.FlatAppearance.BorderSize = 0;
+            this.btnGenerarReporte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnGenerarReporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnGenerarReporte.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGenerarReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.btnGenerarReporte.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnGenerarReporte.Location = new System.Drawing.Point(447, 115);
             this.btnGenerarReporte.Name = "btnGenerarReporte";
-            this.btnGenerarReporte.Size = new System.Drawing.Size(209, 96);
+            this.btnGenerarReporte.Size = new System.Drawing.Size(225, 114);
             this.btnGenerarReporte.TabIndex = 5;
             this.btnGenerarReporte.Text = "GENERAR REPORTE DIARIO";
-            this.btnGenerarReporte.UseVisualStyleBackColor = true;
+            this.btnGenerarReporte.UseVisualStyleBackColor = false;
             // 
             // lblDerivados
             // 
             this.lblDerivados.AutoSize = true;
-            this.lblDerivados.Location = new System.Drawing.Point(70, 224);
+            this.lblDerivados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblDerivados.Location = new System.Drawing.Point(76, 189);
             this.lblDerivados.Name = "lblDerivados";
-            this.lblDerivados.Size = new System.Drawing.Size(83, 16);
+            this.lblDerivados.Size = new System.Drawing.Size(122, 25);
             this.lblDerivados.TabIndex = 4;
             this.lblDerivados.Text = "Derivados: 0";
             // 
             // lblTiempoPromedio
             // 
             this.lblTiempoPromedio.AutoSize = true;
-            this.lblTiempoPromedio.Location = new System.Drawing.Point(82, 275);
+            this.lblTiempoPromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblTiempoPromedio.Location = new System.Drawing.Point(76, 238);
             this.lblTiempoPromedio.Name = "lblTiempoPromedio";
-            this.lblTiempoPromedio.Size = new System.Drawing.Size(152, 16);
+            this.lblTiempoPromedio.Size = new System.Drawing.Size(222, 25);
             this.lblTiempoPromedio.TabIndex = 3;
             this.lblTiempoPromedio.Text = "Tiempo promedio: 0 min";
             // 
             // lblSeguimiento
             // 
             this.lblSeguimiento.AutoSize = true;
-            this.lblSeguimiento.Location = new System.Drawing.Point(70, 174);
+            this.lblSeguimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblSeguimiento.Location = new System.Drawing.Point(76, 141);
             this.lblSeguimiento.Name = "lblSeguimiento";
-            this.lblSeguimiento.Size = new System.Drawing.Size(164, 16);
+            this.lblSeguimiento.Size = new System.Drawing.Size(240, 25);
             this.lblSeguimiento.TabIndex = 2;
             this.lblSeguimiento.Text = "Requieren seguimiento: 0\"";
             // 
             // lblExitosos
             // 
             this.lblExitosos.AutoSize = true;
-            this.lblExitosos.Location = new System.Drawing.Point(70, 111);
+            this.lblExitosos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblExitosos.Location = new System.Drawing.Point(76, 98);
             this.lblExitosos.Name = "lblExitosos";
-            this.lblExitosos.Size = new System.Drawing.Size(137, 16);
+            this.lblExitosos.Size = new System.Drawing.Size(206, 25);
             this.lblExitosos.TabIndex = 1;
             this.lblExitosos.Text = "Consultas exitosas: 0\"";
             // 
             // lblTotalAtendidos
             // 
             this.lblTotalAtendidos.AutoSize = true;
-            this.lblTotalAtendidos.Location = new System.Drawing.Point(58, 54);
+            this.lblTotalAtendidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblTotalAtendidos.Location = new System.Drawing.Point(76, 52);
             this.lblTotalAtendidos.Name = "lblTotalAtendidos";
-            this.lblTotalAtendidos.Size = new System.Drawing.Size(176, 16);
+            this.lblTotalAtendidos.Size = new System.Drawing.Size(257, 25);
             this.lblTotalAtendidos.TabIndex = 0;
             this.lblTotalAtendidos.Text = "Total pacientes atendidos: 0";
             // 
