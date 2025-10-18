@@ -53,7 +53,6 @@
             this.lblPacienteActual = new System.Windows.Forms.Label();
             this.lblTituloPaciente = new System.Windows.Forms.Label();
             this.tabHistorial = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgvHistorialCompleto = new System.Windows.Forms.DataGridView();
             this.lblPacienteAtendido = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@
             this.lblTratamiento = new System.Windows.Forms.Label();
             this.txtDiagnostico = new System.Windows.Forms.TextBox();
             this.lblDiagnostico = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -341,16 +341,7 @@
             this.tabHistorial.TabIndex = 2;
             this.tabHistorial.Text = "HistorialAtencion";
             this.tabHistorial.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1030, 688);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Reportes";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabHistorial.Enter += new System.EventHandler(this.tabHistorial_Enter);
             // 
             // groupBox4
             // 
@@ -481,6 +472,16 @@
             this.lblDiagnostico.Size = new System.Drawing.Size(82, 16);
             this.lblDiagnostico.TabIndex = 1;
             this.lblDiagnostico.Text = "Diagnóstico:";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1030, 688);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Reportes";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

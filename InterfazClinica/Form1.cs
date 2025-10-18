@@ -21,7 +21,8 @@ namespace InterfazClinica
 
             gestor = new GestorTurnos();
             ConfigurarEventosPestaña1();
-            ConfigurarPestaña2(); 
+            ConfigurarPestaña2();
+            ConfigurarPestaña3();
         }
         private void ConfigurarEventosPestaña1()
         {
@@ -36,7 +37,7 @@ namespace InterfazClinica
         }
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            
+
             string dni = txtDni.Text;
             string nombre = txtNombre.Text;
 
@@ -206,7 +207,7 @@ namespace InterfazClinica
                 var paciente = gestor.GetPacienteEnAtencion();
 
                 DialogResult result = MessageBox.Show(
-                    $"¿Finalizar atención de {paciente.Nombre}?",
+                    $"¿Finalizar atención de {paciente.Nombre} y enviar a historial?",
                     "Finalizar Atención",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
@@ -214,10 +215,14 @@ namespace InterfazClinica
 
                 if (result == DialogResult.Yes)
                 {
-                    gestor.FinalizarAtencionActual();
+                    // ❌ QUITA ESTA LÍNEA - Está borrando el paciente
+                    // gestor.FinalizarAtencionActual(); 
+
                     lblPacienteActual.Text = "Ningún paciente en atención";
-                    MessageBox.Show("Atención finalizada", "Éxito",
+                    MessageBox.Show($"Paciente {paciente.Nombre} listo para registrar en historial", "Éxito",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Ir automáticamente a pestaña 3
                     tabControl1.SelectedTab = tabHistorial;
                 }
             }
@@ -326,11 +331,11 @@ namespace InterfazClinica
 
         private string CalcularTiempoEspera(int orden, int prioridad)
         {
-            int tiempoBase = orden * 15; 
+            int tiempoBase = orden * 15;
 
             if (prioridad == 1)
             {
-                tiempoBase = Math.Max(5, (orden - 1) * 10); 
+                tiempoBase = Math.Max(5, (orden - 1) * 10);
             }
 
             return $"{tiempoBase} min";
@@ -357,6 +362,203 @@ namespace InterfazClinica
         private void tabAtencion_Enter(object sender, EventArgs e)
         {
             ActualizarInterfazAtencion();
+        }
+        private void ConfigurarPestaña3()
+        {
+            btnGuardarHistorial.Click += btnGuardarHistorial_Click;
+            btnLimpiarHistorial.Click += btnLimpiarHistorial_Click;
+
+            tabHistorial.Enter += tabHistorial_Enter;
+
+            ConfigurarComboBoxEstados();
+
+            ConfigurarDataGridViewHistorial();
+
+            ActualizarInterfazHistorial();
+        }
+        private void ConfigurarComboBoxEstados()
+        {
+            cmbEstado.Items.Clear();
+            cmbEstado.Items.AddRange(new string[] {
+        "Exitoso", "Requiere seguimiento", "Derivado a especialista", "Hospitalización"
+    });
+            cmbEstado.SelectedIndex = 0;
+        }
+        private void ConfigurarDataGridViewHistorial()
+        {
+            dgvHistorialCompleto.Columns.Clear();
+            dgvHistorialCompleto.Columns.Add("Fecha", "Fecha");
+            dgvHistorialCompleto.Columns.Add("Paciente", "Paciente");
+            dgvHistorialCompleto.Columns.Add("Diagnostico", "Diagnóstico");
+            dgvHistorialCompleto.Columns.Add("Estado", "Estado");
+
+            dgvHistorialCompleto.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHistorialCompleto.ReadOnly = true;
+            dgvHistorialCompleto.RowHeadersVisible = false;
+
+            dgvHistorialCompleto.CellClick += dgvHistorialCompleto_CellClick;
+        }
+        private void btnGuardarHistorial_Click(object sender, EventArgs e)
+        {
+            if (estaProcesando) return;
+            estaProcesando = true;
+
+            try
+            {
+                var paciente = gestor.GetPacienteParaHistorial();
+                if (paciente == null)
+                {
+                    MessageBox.Show("No hay paciente en atención para guardar historial", "Atención",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtDiagnostico.Text))
+                {
+                    MessageBox.Show("El diagnóstico es obligatorio", "Validación",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtDiagnostico.Focus();
+                    return;
+                }
+
+                if (cmbEstado.SelectedItem == null)
+                {
+                    MessageBox.Show("Seleccione un estado", "Validación",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cmbEstado.Focus();
+                    return;
+                }
+
+                string diagnostico = txtDiagnostico.Text.Trim();
+                string tratamiento = txtTratamiento.Text.Trim();
+                string estado = cmbEstado.SelectedItem.ToString();
+                string comentarios = txtComentarios.Text.Trim();
+
+                gestor.RegistrarHistorial(diagnostico, tratamiento, estado, comentarios);
+
+                MessageBox.Show($"Historial de {paciente.Nombre} guardado exitosamente", "Éxito",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ActualizarListaHistorialCompleto();
+                LimpiarFormularioHistorial();
+                ActualizarInterfazHistorial();
+            }
+            finally
+            {
+                estaProcesando = false;
+            }
+        }
+        private void btnLimpiarHistorial_Click(object sender, EventArgs e)
+        {
+            LimpiarFormularioHistorial();
+        }
+
+        private void LimpiarFormularioHistorial()
+        {
+            txtDiagnostico.Clear();
+            txtTratamiento.Clear();
+            cmbEstado.SelectedIndex = 0;
+            txtComentarios.Clear();
+            txtDiagnostico.Focus();
+        }
+        private void ActualizarListaHistorialCompleto()
+        {
+            try
+            {
+                dgvHistorialCompleto.Rows.Clear();
+                var historial = gestor.GetHistorialCompleto();
+
+                foreach (var registro in historial)
+                {
+                    int rowIndex = dgvHistorialCompleto.Rows.Add(
+                        registro.FechaAtencion.ToString("HH:mm"),
+                        registro.Paciente.Nombre,
+                        ObtenerResumen(registro.Diagnostico, 20),
+                        registro.Estado
+                    );
+
+                    switch (registro.Estado)
+                    {
+                        case "Exitoso":
+                            dgvHistorialCompleto.Rows[rowIndex].DefaultCellStyle.BackColor = Color.LightGreen;
+                            break;
+                        case "Requiere seguimiento":
+                            dgvHistorialCompleto.Rows[rowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
+                            break;
+                        case "Derivado a especialista":
+                            dgvHistorialCompleto.Rows[rowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
+                            break;
+                        case "Hospitalización":
+                            dgvHistorialCompleto.Rows[rowIndex].DefaultCellStyle.BackColor = Color.LightCoral;
+                            break;
+                    }
+                }
+
+                if (historial.Count == 0)
+                {
+                    dgvHistorialCompleto.Rows.Add("", "No hay historial registrado", "", "");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al actualizar historial: {ex.Message}", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private string ObtenerResumen(string texto, int maxLength)
+        {
+            if (string.IsNullOrEmpty(texto)) return "";
+            return texto.Length <= maxLength ? texto : texto.Substring(0, maxLength) + "...";
+        }
+
+        private void ActualizarInterfazHistorial()
+        {
+            var paciente = gestor.GetPacienteParaHistorial();
+            if (paciente != null)
+            {
+                string prioridadTexto = paciente.Prioridad == 1 ? "URGENTE" : "Normal";
+                lblPacienteAtendido.Text = $"Paciente atendido: {paciente.Nombre} ({paciente.Edad} años) - {prioridadTexto}";
+                lblPacienteAtendido.ForeColor = Color.DarkGreen;
+                lblPacienteAtendido.Font = new Font(lblPacienteAtendido.Font, FontStyle.Bold);
+            }
+            else
+            {
+                lblPacienteAtendido.Text = "Paciente atendido: Ningún paciente en espera de historial";
+                lblPacienteAtendido.ForeColor = Color.Gray;
+                lblPacienteAtendido.Font = new Font(lblPacienteAtendido.Font, FontStyle.Regular);
+            }
+            ActualizarListaHistorialCompleto();
+        }
+
+        
+        private void tabHistorial_Enter(object sender, EventArgs e)
+        {
+            ActualizarInterfazHistorial();
+        }
+        private void dgvHistorialCompleto_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvHistorialCompleto.Rows[e.RowIndex].Cells["Paciente"].Value != null)
+            {
+                string nombrePaciente = dgvHistorialCompleto.Rows[e.RowIndex].Cells["Paciente"].Value.ToString();
+                var historial = gestor.GetHistorialCompleto();
+                var registro = historial.FirstOrDefault(h => h.Paciente.Nombre == nombrePaciente);
+
+                if (registro != null)
+                {
+                    string mensaje = $" DETALLES COMPLETOS DE LA CONSULTA\n\n" +
+                                   $" Paciente: {registro.Paciente.Nombre}\n" +
+                                   $" DNI: {registro.Paciente.Dni}\n" +
+                                   $" Edad: {registro.Paciente.Edad} años\n" +
+                                   $" Fecha: {registro.FechaAtencion:dd/MM/yyyy HH:mm}\n\n" +
+                                   $" DIAGNÓSTICO:\n{registro.Diagnostico}\n\n" +
+                                   $" TRATAMIENTO:\n{registro.Tratamiento}\n\n" +
+                                   $" ESTADO: {registro.Estado}\n\n" +
+                                   $" COMENTARIOS:\n{registro.Comentarios}";
+
+                    MessageBox.Show(mensaje, "Detalles Completo de Consulta",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }
