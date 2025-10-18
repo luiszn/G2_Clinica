@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -68,16 +69,16 @@
             this.txtDiagnostico = new System.Windows.Forms.TextBox();
             this.lblDiagnostico = new System.Windows.Forms.Label();
             this.tabReportes = new System.Windows.Forms.TabPage();
-            this.gbEstadisticas = new System.Windows.Forms.GroupBox();
-            this.lblTotalAtendidos = new System.Windows.Forms.Label();
-            this.lblExitosos = new System.Windows.Forms.Label();
-            this.lblSeguimiento = new System.Windows.Forms.Label();
-            this.lblTiempoPromedio = new System.Windows.Forms.Label();
-            this.lblDerivados = new System.Windows.Forms.Label();
-            this.btnGenerarReporte = new System.Windows.Forms.Button();
-            this.btnExportarPDF = new System.Windows.Forms.Button();
             this.gbReporteDetallado = new System.Windows.Forms.GroupBox();
             this.txtReporteDetallado = new System.Windows.Forms.TextBox();
+            this.gbEstadisticas = new System.Windows.Forms.GroupBox();
+            this.btnExportarPDF = new System.Windows.Forms.Button();
+            this.btnGenerarReporte = new System.Windows.Forms.Button();
+            this.lblDerivados = new System.Windows.Forms.Label();
+            this.lblTiempoPromedio = new System.Windows.Forms.Label();
+            this.lblSeguimiento = new System.Windows.Forms.Label();
+            this.lblExitosos = new System.Windows.Forms.Label();
+            this.lblTotalAtendidos = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -93,8 +94,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorialCompleto)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tabReportes.SuspendLayout();
-            this.gbEstadisticas.SuspendLayout();
             this.gbReporteDetallado.SuspendLayout();
+            this.gbEstadisticas.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -125,21 +126,23 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvPacientesEnEspera);
-            this.groupBox2.Location = new System.Drawing.Point(10, 332);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.groupBox2.Location = new System.Drawing.Point(483, 10);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1013, 347);
+            this.groupBox2.Size = new System.Drawing.Size(540, 669);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "-- PACIENTES EN ESPERA --";
             // 
             // dgvPacientesEnEspera
             // 
+            this.dgvPacientesEnEspera.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dgvPacientesEnEspera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPacientesEnEspera.Location = new System.Drawing.Point(7, 34);
+            this.dgvPacientesEnEspera.Location = new System.Drawing.Point(19, 39);
             this.dgvPacientesEnEspera.Name = "dgvPacientesEnEspera";
             this.dgvPacientesEnEspera.RowHeadersWidth = 51;
             this.dgvPacientesEnEspera.RowTemplate.Height = 24;
-            this.dgvPacientesEnEspera.Size = new System.Drawing.Size(1000, 307);
+            this.dgvPacientesEnEspera.Size = new System.Drawing.Size(498, 624);
             this.dgvPacientesEnEspera.TabIndex = 0;
             // 
             // groupBox1
@@ -153,59 +156,69 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
             this.groupBox1.Location = new System.Drawing.Point(7, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1013, 310);
+            this.groupBox1.Size = new System.Drawing.Size(470, 669);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "-- DATOS DEL NUEVO PACIENTE --";
             // 
             // numEdad
             // 
-            this.numEdad.Location = new System.Drawing.Point(200, 182);
+            this.numEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numEdad.Location = new System.Drawing.Point(136, 233);
             this.numEdad.Name = "numEdad";
-            this.numEdad.Size = new System.Drawing.Size(120, 22);
+            this.numEdad.Size = new System.Drawing.Size(120, 28);
             this.numEdad.TabIndex = 8;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(200, 122);
+            this.txtNombre.Location = new System.Drawing.Point(136, 185);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 22);
+            this.txtNombre.Size = new System.Drawing.Size(310, 30);
             this.txtNombre.TabIndex = 7;
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(200, 66);
+            this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDni.Location = new System.Drawing.Point(136, 125);
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(100, 22);
+            this.txtDni.Size = new System.Drawing.Size(310, 28);
             this.txtDni.TabIndex = 6;
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(467, 163);
+            this.btnLimpiar.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiar.Location = new System.Drawing.Point(238, 386);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(117, 54);
+            this.btnLimpiar.Size = new System.Drawing.Size(226, 112);
             this.btnLimpiar.TabIndex = 5;
             this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(472, 77);
+            this.btnRegistrar.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRegistrar.Location = new System.Drawing.Point(6, 386);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(112, 48);
+            this.btnRegistrar.Size = new System.Drawing.Size(216, 112);
             this.btnRegistrar.TabIndex = 4;
             this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
             // 
             // chkPrioritario
             // 
             this.chkPrioritario.AutoSize = true;
-            this.chkPrioritario.Location = new System.Drawing.Point(89, 242);
+            this.chkPrioritario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPrioritario.Location = new System.Drawing.Point(94, 311);
             this.chkPrioritario.Name = "chkPrioritario";
-            this.chkPrioritario.Size = new System.Drawing.Size(200, 20);
+            this.chkPrioritario.Size = new System.Drawing.Size(282, 29);
             this.chkPrioritario.TabIndex = 3;
             this.chkPrioritario.Text = "Paciente prioritario (Urgente)";
             this.chkPrioritario.UseVisualStyleBackColor = true;
@@ -213,27 +226,30 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(86, 182);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(38, 231);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 16);
+            this.label3.Size = new System.Drawing.Size(69, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Edad :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 122);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(38, 181);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 16);
+            this.label2.Size = new System.Drawing.Size(92, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(86, 66);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(38, 121);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 16);
+            this.label1.Size = new System.Drawing.Size(56, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "DNI :";
             // 
@@ -254,6 +270,7 @@
             this.gbColaEspera.Controls.Add(this.btnVerDetalles);
             this.gbColaEspera.Controls.Add(this.btnActualizarLista);
             this.gbColaEspera.Controls.Add(this.dgvColaEspera);
+            this.gbColaEspera.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
             this.gbColaEspera.Location = new System.Drawing.Point(4, 382);
             this.gbColaEspera.Name = "gbColaEspera";
             this.gbColaEspera.Size = new System.Drawing.Size(1023, 295);
@@ -263,27 +280,32 @@
             // 
             // btnVerDetalles
             // 
-            this.btnVerDetalles.Location = new System.Drawing.Point(832, 174);
+            this.btnVerDetalles.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnVerDetalles.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnVerDetalles.Location = new System.Drawing.Point(812, 170);
             this.btnVerDetalles.Name = "btnVerDetalles";
-            this.btnVerDetalles.Size = new System.Drawing.Size(151, 85);
+            this.btnVerDetalles.Size = new System.Drawing.Size(185, 89);
             this.btnVerDetalles.TabIndex = 2;
             this.btnVerDetalles.Text = "VER DETALLES";
-            this.btnVerDetalles.UseVisualStyleBackColor = true;
+            this.btnVerDetalles.UseVisualStyleBackColor = false;
             // 
             // btnActualizarLista
             // 
-            this.btnActualizarLista.Location = new System.Drawing.Point(832, 73);
+            this.btnActualizarLista.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnActualizarLista.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnActualizarLista.Location = new System.Drawing.Point(812, 67);
             this.btnActualizarLista.Name = "btnActualizarLista";
-            this.btnActualizarLista.Size = new System.Drawing.Size(151, 84);
+            this.btnActualizarLista.Size = new System.Drawing.Size(185, 88);
             this.btnActualizarLista.TabIndex = 1;
             this.btnActualizarLista.Text = "ACTUALIZAR LISTA";
-            this.btnActualizarLista.UseVisualStyleBackColor = true;
+            this.btnActualizarLista.UseVisualStyleBackColor = false;
             // 
             // dgvColaEspera
             // 
             this.dgvColaEspera.AllowUserToAddRows = false;
             this.dgvColaEspera.AllowUserToDeleteRows = false;
             this.dgvColaEspera.AllowUserToResizeColumns = false;
+            this.dgvColaEspera.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dgvColaEspera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvColaEspera.Location = new System.Drawing.Point(6, 40);
             this.dgvColaEspera.Name = "dgvColaEspera";
@@ -299,6 +321,7 @@
             this.gbAtencionActual.Controls.Add(this.btnLlamarSiguiente);
             this.gbAtencionActual.Controls.Add(this.lblPacienteActual);
             this.gbAtencionActual.Controls.Add(this.lblTituloPaciente);
+            this.gbAtencionActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
             this.gbAtencionActual.Location = new System.Drawing.Point(5, 12);
             this.gbAtencionActual.Name = "gbAtencionActual";
             this.gbAtencionActual.Size = new System.Drawing.Size(1020, 364);
@@ -308,37 +331,45 @@
             // 
             // btnFinalizarAtencion
             // 
+            this.btnFinalizarAtencion.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnFinalizarAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.btnFinalizarAtencion.ForeColor = System.Drawing.SystemColors.Control;
             this.btnFinalizarAtencion.Location = new System.Drawing.Point(531, 228);
             this.btnFinalizarAtencion.Name = "btnFinalizarAtencion";
-            this.btnFinalizarAtencion.Size = new System.Drawing.Size(322, 79);
+            this.btnFinalizarAtencion.Size = new System.Drawing.Size(427, 79);
             this.btnFinalizarAtencion.TabIndex = 3;
             this.btnFinalizarAtencion.Text = "FINALIZAR ATENCIÓN ACTUAL";
-            this.btnFinalizarAtencion.UseVisualStyleBackColor = true;
+            this.btnFinalizarAtencion.UseVisualStyleBackColor = false;
             // 
             // btnLlamarSiguiente
             // 
-            this.btnLlamarSiguiente.Location = new System.Drawing.Point(80, 228);
+            this.btnLlamarSiguiente.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnLlamarSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.btnLlamarSiguiente.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnLlamarSiguiente.Location = new System.Drawing.Point(86, 228);
             this.btnLlamarSiguiente.Name = "btnLlamarSiguiente";
             this.btnLlamarSiguiente.Size = new System.Drawing.Size(379, 79);
             this.btnLlamarSiguiente.TabIndex = 2;
             this.btnLlamarSiguiente.Text = "LLAMAR SIGUIENTE PACIENTE";
-            this.btnLlamarSiguiente.UseVisualStyleBackColor = true;
+            this.btnLlamarSiguiente.UseVisualStyleBackColor = false;
             // 
             // lblPacienteActual
             // 
             this.lblPacienteActual.AutoSize = true;
-            this.lblPacienteActual.Location = new System.Drawing.Point(374, 141);
+            this.lblPacienteActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblPacienteActual.Location = new System.Drawing.Point(367, 152);
             this.lblPacienteActual.Name = "lblPacienteActual";
-            this.lblPacienteActual.Size = new System.Drawing.Size(192, 16);
+            this.lblPacienteActual.Size = new System.Drawing.Size(283, 25);
             this.lblPacienteActual.TabIndex = 1;
             this.lblPacienteActual.Text = "\"Ningún paciente en atención\"  ";
             // 
             // lblTituloPaciente
             // 
             this.lblTituloPaciente.AutoSize = true;
-            this.lblTituloPaciente.Location = new System.Drawing.Point(77, 67);
+            this.lblTituloPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblTituloPaciente.Location = new System.Drawing.Point(70, 74);
             this.lblTituloPaciente.Name = "lblTituloPaciente";
-            this.lblTituloPaciente.Size = new System.Drawing.Size(175, 16);
+            this.lblTituloPaciente.Size = new System.Drawing.Size(266, 25);
             this.lblTituloPaciente.TabIndex = 0;
             this.lblTituloPaciente.Text = "PACIENTE EN CONSULTA:";
             // 
@@ -378,9 +409,10 @@
             // 
             // lblPacienteAtendido
             // 
-            this.lblPacienteAtendido.Location = new System.Drawing.Point(37, 17);
+            this.lblPacienteAtendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblPacienteAtendido.Location = new System.Drawing.Point(29, 17);
             this.lblPacienteAtendido.Name = "lblPacienteAtendido";
-            this.lblPacienteAtendido.Size = new System.Drawing.Size(512, 30);
+            this.lblPacienteAtendido.Size = new System.Drawing.Size(636, 30);
             this.lblPacienteAtendido.TabIndex = 5;
             this.lblPacienteAtendido.Text = "Paciente atendido: ";
             // 
@@ -396,93 +428,104 @@
             this.groupBox3.Controls.Add(this.lblTratamiento);
             this.groupBox3.Controls.Add(this.txtDiagnostico);
             this.groupBox3.Controls.Add(this.lblDiagnostico);
-            this.groupBox3.Location = new System.Drawing.Point(7, 68);
+            this.groupBox3.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(7, 50);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1019, 300);
+            this.groupBox3.Size = new System.Drawing.Size(1019, 318);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "REGISTRAR RESULTADO DE CONSULTA";
             // 
             // btnLimpiarHistorial
             // 
-            this.btnLimpiarHistorial.Location = new System.Drawing.Point(287, 249);
+            this.btnLimpiarHistorial.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnLimpiarHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.btnLimpiarHistorial.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnLimpiarHistorial.Location = new System.Drawing.Point(704, 216);
             this.btnLimpiarHistorial.Name = "btnLimpiarHistorial";
-            this.btnLimpiarHistorial.Size = new System.Drawing.Size(203, 23);
+            this.btnLimpiarHistorial.Size = new System.Drawing.Size(229, 76);
             this.btnLimpiarHistorial.TabIndex = 10;
             this.btnLimpiarHistorial.Text = "LIMPIAR";
-            this.btnLimpiarHistorial.UseVisualStyleBackColor = true;
+            this.btnLimpiarHistorial.UseVisualStyleBackColor = false;
             // 
             // btnGuardarHistorial
             // 
-            this.btnGuardarHistorial.Location = new System.Drawing.Point(288, 209);
+            this.btnGuardarHistorial.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnGuardarHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.btnGuardarHistorial.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnGuardarHistorial.Location = new System.Drawing.Point(704, 126);
             this.btnGuardarHistorial.Name = "btnGuardarHistorial";
-            this.btnGuardarHistorial.Size = new System.Drawing.Size(193, 23);
+            this.btnGuardarHistorial.Size = new System.Drawing.Size(229, 73);
             this.btnGuardarHistorial.TabIndex = 9;
             this.btnGuardarHistorial.Text = "GUARDAR HISTORIAL";
-            this.btnGuardarHistorial.UseVisualStyleBackColor = true;
+            this.btnGuardarHistorial.UseVisualStyleBackColor = false;
             // 
             // txtTratamiento
             // 
-            this.txtTratamiento.Location = new System.Drawing.Point(27, 139);
+            this.txtTratamiento.Location = new System.Drawing.Point(27, 148);
             this.txtTratamiento.Name = "txtTratamiento";
-            this.txtTratamiento.Size = new System.Drawing.Size(436, 22);
+            this.txtTratamiento.Size = new System.Drawing.Size(634, 30);
             this.txtTratamiento.TabIndex = 8;
             // 
             // txtComentarios
             // 
-            this.txtComentarios.Location = new System.Drawing.Point(33, 249);
+            this.txtComentarios.Location = new System.Drawing.Point(27, 233);
             this.txtComentarios.Name = "txtComentarios";
-            this.txtComentarios.Size = new System.Drawing.Size(100, 22);
+            this.txtComentarios.Size = new System.Drawing.Size(642, 30);
             this.txtComentarios.TabIndex = 7;
             // 
             // cmbEstado
             // 
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(597, 123);
+            this.cmbEstado.Location = new System.Drawing.Point(704, 75);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(121, 24);
+            this.cmbEstado.Size = new System.Drawing.Size(121, 31);
             this.cmbEstado.TabIndex = 6;
             // 
             // lblComentarios
             // 
             this.lblComentarios.AutoSize = true;
-            this.lblComentarios.Location = new System.Drawing.Point(30, 217);
+            this.lblComentarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblComentarios.Location = new System.Drawing.Point(24, 196);
             this.lblComentarios.Name = "lblComentarios";
-            this.lblComentarios.Size = new System.Drawing.Size(86, 16);
+            this.lblComentarios.Size = new System.Drawing.Size(129, 25);
             this.lblComentarios.TabIndex = 5;
             this.lblComentarios.Text = "Comentarios:";
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(594, 84);
+            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblEstado.Location = new System.Drawing.Point(699, 37);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(53, 16);
+            this.lblEstado.Size = new System.Drawing.Size(79, 25);
             this.lblEstado.TabIndex = 4;
             this.lblEstado.Text = "Estado:";
             // 
             // lblTratamiento
             // 
             this.lblTratamiento.AutoSize = true;
+            this.lblTratamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
             this.lblTratamiento.Location = new System.Drawing.Point(24, 110);
             this.lblTratamiento.Name = "lblTratamiento";
-            this.lblTratamiento.Size = new System.Drawing.Size(82, 16);
+            this.lblTratamiento.Size = new System.Drawing.Size(122, 25);
             this.lblTratamiento.TabIndex = 3;
             this.lblTratamiento.Text = "Tratamiento:";
             // 
             // txtDiagnostico
             // 
-            this.txtDiagnostico.Location = new System.Drawing.Point(27, 60);
+            this.txtDiagnostico.Location = new System.Drawing.Point(27, 75);
             this.txtDiagnostico.Name = "txtDiagnostico";
-            this.txtDiagnostico.Size = new System.Drawing.Size(436, 22);
+            this.txtDiagnostico.Size = new System.Drawing.Size(634, 30);
             this.txtDiagnostico.TabIndex = 2;
             // 
             // lblDiagnostico
             // 
             this.lblDiagnostico.AutoSize = true;
-            this.lblDiagnostico.Location = new System.Drawing.Point(24, 41);
+            this.lblDiagnostico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblDiagnostico.Location = new System.Drawing.Point(30, 37);
             this.lblDiagnostico.Name = "lblDiagnostico";
-            this.lblDiagnostico.Size = new System.Drawing.Size(82, 16);
+            this.lblDiagnostico.Size = new System.Drawing.Size(120, 25);
             this.lblDiagnostico.TabIndex = 1;
             this.lblDiagnostico.Text = "Diagnóstico:";
             // 
@@ -497,85 +540,6 @@
             this.tabReportes.TabIndex = 3;
             this.tabReportes.Text = "Reportes";
             this.tabReportes.UseVisualStyleBackColor = true;
-            // 
-            // gbEstadisticas
-            // 
-            this.gbEstadisticas.Controls.Add(this.btnExportarPDF);
-            this.gbEstadisticas.Controls.Add(this.btnGenerarReporte);
-            this.gbEstadisticas.Controls.Add(this.lblDerivados);
-            this.gbEstadisticas.Controls.Add(this.lblTiempoPromedio);
-            this.gbEstadisticas.Controls.Add(this.lblSeguimiento);
-            this.gbEstadisticas.Controls.Add(this.lblExitosos);
-            this.gbEstadisticas.Controls.Add(this.lblTotalAtendidos);
-            this.gbEstadisticas.Location = new System.Drawing.Point(5, 4);
-            this.gbEstadisticas.Name = "gbEstadisticas";
-            this.gbEstadisticas.Size = new System.Drawing.Size(1020, 397);
-            this.gbEstadisticas.TabIndex = 0;
-            this.gbEstadisticas.TabStop = false;
-            this.gbEstadisticas.Text = "--ESTADISTICAS";
-            // 
-            // lblTotalAtendidos
-            // 
-            this.lblTotalAtendidos.AutoSize = true;
-            this.lblTotalAtendidos.Location = new System.Drawing.Point(58, 54);
-            this.lblTotalAtendidos.Name = "lblTotalAtendidos";
-            this.lblTotalAtendidos.Size = new System.Drawing.Size(176, 16);
-            this.lblTotalAtendidos.TabIndex = 0;
-            this.lblTotalAtendidos.Text = "Total pacientes atendidos: 0";
-            // 
-            // lblExitosos
-            // 
-            this.lblExitosos.AutoSize = true;
-            this.lblExitosos.Location = new System.Drawing.Point(70, 111);
-            this.lblExitosos.Name = "lblExitosos";
-            this.lblExitosos.Size = new System.Drawing.Size(137, 16);
-            this.lblExitosos.TabIndex = 1;
-            this.lblExitosos.Text = "Consultas exitosas: 0\"";
-            // 
-            // lblSeguimiento
-            // 
-            this.lblSeguimiento.AutoSize = true;
-            this.lblSeguimiento.Location = new System.Drawing.Point(70, 174);
-            this.lblSeguimiento.Name = "lblSeguimiento";
-            this.lblSeguimiento.Size = new System.Drawing.Size(164, 16);
-            this.lblSeguimiento.TabIndex = 2;
-            this.lblSeguimiento.Text = "Requieren seguimiento: 0\"";
-            // 
-            // lblTiempoPromedio
-            // 
-            this.lblTiempoPromedio.AutoSize = true;
-            this.lblTiempoPromedio.Location = new System.Drawing.Point(82, 275);
-            this.lblTiempoPromedio.Name = "lblTiempoPromedio";
-            this.lblTiempoPromedio.Size = new System.Drawing.Size(152, 16);
-            this.lblTiempoPromedio.TabIndex = 3;
-            this.lblTiempoPromedio.Text = "Tiempo promedio: 0 min";
-            // 
-            // lblDerivados
-            // 
-            this.lblDerivados.AutoSize = true;
-            this.lblDerivados.Location = new System.Drawing.Point(70, 224);
-            this.lblDerivados.Name = "lblDerivados";
-            this.lblDerivados.Size = new System.Drawing.Size(83, 16);
-            this.lblDerivados.TabIndex = 4;
-            this.lblDerivados.Text = "Derivados: 0";
-            // 
-            // btnGenerarReporte
-            // 
-            this.btnGenerarReporte.Location = new System.Drawing.Point(413, 54);
-            this.btnGenerarReporte.Name = "btnGenerarReporte";
-            this.btnGenerarReporte.Size = new System.Drawing.Size(209, 96);
-            this.btnGenerarReporte.TabIndex = 5;
-            this.btnGenerarReporte.Text = "GENERAR REPORTE DIARIO";
-            this.btnGenerarReporte.UseVisualStyleBackColor = true;
-            // 
-            // btnExportarPDF
-            // 
-            this.btnExportarPDF.Location = new System.Drawing.Point(413, 204);
-            this.btnExportarPDF.Name = "btnExportarPDF";
-            this.btnExportarPDF.Size = new System.Drawing.Size(225, 121);
-            this.btnExportarPDF.TabIndex = 6;
-            this.btnExportarPDF.Text = "EXPORTAR A PDF";
-            this.btnExportarPDF.UseVisualStyleBackColor = true;
             // 
             // gbReporteDetallado
             // 
@@ -597,14 +561,95 @@
             this.txtReporteDetallado.Size = new System.Drawing.Size(894, 196);
             this.txtReporteDetallado.TabIndex = 0;
             // 
+            // gbEstadisticas
+            // 
+            this.gbEstadisticas.Controls.Add(this.btnExportarPDF);
+            this.gbEstadisticas.Controls.Add(this.btnGenerarReporte);
+            this.gbEstadisticas.Controls.Add(this.lblDerivados);
+            this.gbEstadisticas.Controls.Add(this.lblTiempoPromedio);
+            this.gbEstadisticas.Controls.Add(this.lblSeguimiento);
+            this.gbEstadisticas.Controls.Add(this.lblExitosos);
+            this.gbEstadisticas.Controls.Add(this.lblTotalAtendidos);
+            this.gbEstadisticas.Location = new System.Drawing.Point(5, 4);
+            this.gbEstadisticas.Name = "gbEstadisticas";
+            this.gbEstadisticas.Size = new System.Drawing.Size(1020, 397);
+            this.gbEstadisticas.TabIndex = 0;
+            this.gbEstadisticas.TabStop = false;
+            this.gbEstadisticas.Text = "--ESTADISTICAS";
+            // 
+            // btnExportarPDF
+            // 
+            this.btnExportarPDF.Location = new System.Drawing.Point(413, 204);
+            this.btnExportarPDF.Name = "btnExportarPDF";
+            this.btnExportarPDF.Size = new System.Drawing.Size(225, 121);
+            this.btnExportarPDF.TabIndex = 6;
+            this.btnExportarPDF.Text = "EXPORTAR A PDF";
+            this.btnExportarPDF.UseVisualStyleBackColor = true;
+            // 
+            // btnGenerarReporte
+            // 
+            this.btnGenerarReporte.Location = new System.Drawing.Point(413, 54);
+            this.btnGenerarReporte.Name = "btnGenerarReporte";
+            this.btnGenerarReporte.Size = new System.Drawing.Size(209, 96);
+            this.btnGenerarReporte.TabIndex = 5;
+            this.btnGenerarReporte.Text = "GENERAR REPORTE DIARIO";
+            this.btnGenerarReporte.UseVisualStyleBackColor = true;
+            // 
+            // lblDerivados
+            // 
+            this.lblDerivados.AutoSize = true;
+            this.lblDerivados.Location = new System.Drawing.Point(70, 224);
+            this.lblDerivados.Name = "lblDerivados";
+            this.lblDerivados.Size = new System.Drawing.Size(83, 16);
+            this.lblDerivados.TabIndex = 4;
+            this.lblDerivados.Text = "Derivados: 0";
+            // 
+            // lblTiempoPromedio
+            // 
+            this.lblTiempoPromedio.AutoSize = true;
+            this.lblTiempoPromedio.Location = new System.Drawing.Point(82, 275);
+            this.lblTiempoPromedio.Name = "lblTiempoPromedio";
+            this.lblTiempoPromedio.Size = new System.Drawing.Size(152, 16);
+            this.lblTiempoPromedio.TabIndex = 3;
+            this.lblTiempoPromedio.Text = "Tiempo promedio: 0 min";
+            // 
+            // lblSeguimiento
+            // 
+            this.lblSeguimiento.AutoSize = true;
+            this.lblSeguimiento.Location = new System.Drawing.Point(70, 174);
+            this.lblSeguimiento.Name = "lblSeguimiento";
+            this.lblSeguimiento.Size = new System.Drawing.Size(164, 16);
+            this.lblSeguimiento.TabIndex = 2;
+            this.lblSeguimiento.Text = "Requieren seguimiento: 0\"";
+            // 
+            // lblExitosos
+            // 
+            this.lblExitosos.AutoSize = true;
+            this.lblExitosos.Location = new System.Drawing.Point(70, 111);
+            this.lblExitosos.Name = "lblExitosos";
+            this.lblExitosos.Size = new System.Drawing.Size(137, 16);
+            this.lblExitosos.TabIndex = 1;
+            this.lblExitosos.Text = "Consultas exitosas: 0\"";
+            // 
+            // lblTotalAtendidos
+            // 
+            this.lblTotalAtendidos.AutoSize = true;
+            this.lblTotalAtendidos.Location = new System.Drawing.Point(58, 54);
+            this.lblTotalAtendidos.Name = "lblTotalAtendidos";
+            this.lblTotalAtendidos.Size = new System.Drawing.Size(176, 16);
+            this.lblTotalAtendidos.TabIndex = 0;
+            this.lblTotalAtendidos.Text = "Total pacientes atendidos: 0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1041, 724);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Clinica";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -623,10 +668,10 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabReportes.ResumeLayout(false);
-            this.gbEstadisticas.ResumeLayout(false);
-            this.gbEstadisticas.PerformLayout();
             this.gbReporteDetallado.ResumeLayout(false);
             this.gbReporteDetallado.PerformLayout();
+            this.gbEstadisticas.ResumeLayout(false);
+            this.gbEstadisticas.PerformLayout();
             this.ResumeLayout(false);
 
         }
