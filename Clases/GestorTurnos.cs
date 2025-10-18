@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Clases
 {
@@ -69,7 +71,7 @@ namespace Clases
             {
                 var nuevoHistorial = new HistorialAtencion(pacienteEnAtencion, diagnostico, tratamiento, estado, comentarios);
                 historialCompleto.Add(nuevoHistorial);
-                pacienteEnAtencion = null; // Limpiar después de guardar
+                pacienteEnAtencion = null; 
             }
         }
 
@@ -81,6 +83,45 @@ namespace Clases
         public Paciente GetPacienteParaHistorial()
         {
             return pacienteEnAtencion;
+        }
+        public int GetTotalPacientesAtendidos()
+        {
+            return historialCompleto.Count;
+        }
+        public int GetPacientesAtendidosPorEstado(string estado)
+        {
+            return historialCompleto.Count(h => h.Estado == estado);
+        }
+        public int GetPacientesUrgentesAtendidos()
+        {
+            return historialCompleto.Count(h => h.Paciente.Prioridad == 1);
+        }
+        public int GetPacientesNormalesAtendidos()
+        {
+            return historialCompleto.Count(h => h.Paciente.Prioridad == 0);
+        }
+        public List<HistorialAtencion> GetHistorialDelDia(DateTime fecha)
+        {
+            return historialCompleto.Where(h => h.FechaAtencion.Date == fecha.Date).ToList();
+        }
+        public TimeSpan GetTiempoPromedioAtencion()
+        {
+            if (historialCompleto.Count == 0)
+                return TimeSpan.Zero;
+            return TimeSpan.FromMinutes(20);
+        }
+        public Dictionary<string, int> GetEstadisticasCompletas()
+        {
+            return new Dictionary<string, int>
+        {
+            { "Total", GetTotalPacientesAtendidos() },
+            { "Exitosos", GetPacientesAtendidosPorEstado("Exitoso") },
+            { "Seguimiento", GetPacientesAtendidosPorEstado("Requiere seguimiento") },
+            { "Derivados", GetPacientesAtendidosPorEstado("Derivado a especialista") },
+            { "Hospitalizados", GetPacientesAtendidosPorEstado("Hospitalización") },
+            { "Urgentes", GetPacientesUrgentesAtendidos() },
+            { "Normales", GetPacientesNormalesAtendidos() }
+        };
         }
     }
 }

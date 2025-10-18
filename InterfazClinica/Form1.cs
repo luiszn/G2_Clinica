@@ -1,12 +1,10 @@
 ﻿using Clases;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InterfazClinica
@@ -23,6 +21,7 @@ namespace InterfazClinica
             ConfigurarEventosPestaña1();
             ConfigurarPestaña2();
             ConfigurarPestaña3();
+            ConfigurarPestaña4();
         }
         private void ConfigurarEventosPestaña1()
         {
@@ -149,7 +148,6 @@ namespace InterfazClinica
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        // ========== PESTAÑA 2: ATENCIÓN MÉDICA ==========
         private void ConfigurarPestaña2()
         {
             // Conectar eventos de la pestaña 2 - SOLO EN CÓDIGO
@@ -529,8 +527,6 @@ namespace InterfazClinica
             }
             ActualizarListaHistorialCompleto();
         }
-
-        
         private void tabHistorial_Enter(object sender, EventArgs e)
         {
             ActualizarInterfazHistorial();
@@ -559,6 +555,191 @@ namespace InterfazClinica
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+        private void ConfigurarPestaña4()
+        {
+            btnGenerarReporte.Click += btnGenerarReporte_Click;
+            btnExportarPDF.Click += btnExportarPDF_Click;
+            tabReportes.Enter += tabReportes_Enter;
+            GenerarReporteDelDia();
+        }
+        private void btnGenerarReporte_Click(object sender, EventArgs e)
+        {
+            GenerarReporteDelDia();
+        }
+        private void btnExportarPDF_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string reporte = txtReporteDetallado.Text;
+                if (string.IsNullOrWhiteSpace(reporte) || reporte.Contains("No hay registros"))
+                {
+                    MessageBox.Show("❌ No hay datos en el reporte\n\nGenere el reporte primero con pacientes atendidos",
+                                  "Sin Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                using (SaveFileDialog saveDialog = new SaveFileDialog())
+                {
+                    saveDialog.Filter = "Archivo txt (*.txt)|*.txt";
+                    saveDialog.FileName = $"Reporte_Clinico_{DateTime.Today:yyyyMMdd}_{DateTime.Now:HHmm}";
+                    saveDialog.Title = "Guardar Reporte Clínico";
+
+                    if (saveDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string rutaArchivo = saveDialog.FileName;
+
+                        string contenido = $"REPORTE CLÍNICO - SISTEMA DE GESTIÓN\n" +
+                                         $"===========================================\n" +
+                                         $"Fecha de generación: {DateTime.Now:dd/MM/yyyy HH:mm}\n" +
+                                         $"Archivo: {Path.GetFileName(rutaArchivo)}\n" +
+                                         $"===========================================\n\n" +
+                                         $"{reporte}";
+
+                        File.WriteAllText(rutaArchivo, contenido, Encoding.UTF8);
+
+                        MostrarMensajeExito(rutaArchivo, reporte);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"❌ Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void MostrarMensajeExito(string rutaArchivo, string reporte)
+        {
+            int totalPacientes = reporte.Split('\n').Count(line => line.Contains("•") && line.Contains("-"));
+            int totalLineas = reporte.Split('\n').Length;
+
+            string mensaje = $"📄 **REPORTE EXPORTADO EXITOSAMENTE**\n\n" +
+                            $"📍 **Ubicación:** {rutaArchivo}\n" +
+                            $"📊 **Pacientes en reporte:** {totalPacientes}\n" +
+                            $"📏 **Páginas estimadas:** {Math.Max(1, totalLineas / 40)}\n" +
+                            $"💾 **Tamaño del archivo:** {(reporte.Length / 1024.0):0.0} KB\n\n" +
+                            $"✅ El archivo  está listo para usar";
+
+            MessageBox.Show(mensaje, "✅ Exportación Completada",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void GenerarReporteDelDia()
+        {
+            try
+            {
+                var estadisticas = gestor.GetEstadisticasCompletas();
+                int totalAtendidos = estadisticas["Total"];
+                int exitosos = estadisticas["Exitosos"];
+                int seguimiento = estadisticas["Seguimiento"];
+                int derivados = estadisticas["Derivados"];
+                int hospitalizados = estadisticas["Hospitalizados"];
+                int urgentes = estadisticas["Urgentes"];
+                int normales = estadisticas["Normales"];
+                TimeSpan tiempoPromedio = gestor.GetTiempoPromedioAtencion();
+
+                double porcentajeExitosos = totalAtendidos > 0 ? (exitosos * 100.0) / totalAtendidos : 0;
+                double porcentajeUrgentes = totalAtendidos > 0 ? (urgentes * 100.0) / totalAtendidos : 0;
+
+                
+                lblTotalAtendidos.Text = $"📈 Total pacientes atendidos: {totalAtendidos}";
+                lblExitosos.Text = $"✅ Consultas exitosas: {exitosos} ({porcentajeExitosos:0.0}%)";
+                lblSeguimiento.Text = $"🔄 Requieren seguimiento: {seguimiento}";
+                lblDerivados.Text = $"🏥 Derivados: {derivados}";
+                lblTiempoPromedio.Text = $"⏱️ Tiempo promedio: {tiempoPromedio.TotalMinutes:0} min";
+
+                
+                ColorearEstadisticas(totalAtendidos, porcentajeExitosos);
+
+                
+                GenerarReporteDetallado(estadisticas, tiempoPromedio);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al generar reporte: {ex.Message}", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void ColorearEstadisticas(int totalAtendidos, double porcentajeExitosos)
+        {
+            
+            lblTotalAtendidos.BackColor = totalAtendidos > 0 ? Color.LightGreen : Color.LightGray;
+            lblExitosos.BackColor = porcentajeExitosos >= 70 ? Color.LightGreen : Color.LightYellow;
+        }
+
+        private void GenerarReporteDetallado(Dictionary<string, int> estadisticas, TimeSpan tiempoPromedio)
+        {
+            StringBuilder reporte = new StringBuilder();
+
+            int totalAtendidos = estadisticas["Total"];
+            int exitosos = estadisticas["Exitosos"];
+            int seguimiento = estadisticas["Seguimiento"];
+            int derivados = estadisticas["Derivados"];
+            int hospitalizados = estadisticas["Hospitalizados"];
+            int urgentes = estadisticas["Urgentes"];
+            int normales = estadisticas["Normales"];
+
+            reporte.AppendLine($"📊 REPORTE CLÍNICO - {DateTime.Today:dd/MM/yyyy}");
+            reporte.AppendLine("===========================================");
+            reporte.AppendLine();
+
+            reporte.AppendLine("📈 ESTADÍSTICAS GENERALES:");
+            reporte.AppendLine($"   • Total pacientes atendidos: {totalAtendidos}");
+            reporte.AppendLine($"   • Tiempo promedio de atención: {tiempoPromedio.TotalMinutes:0} minutos");
+            reporte.AppendLine();
+
+            reporte.AppendLine("🎯 DISTRIBUCIÓN POR PRIORIDAD:");
+            reporte.AppendLine($"   • Pacientes urgentes: {urgentes}");
+            reporte.AppendLine($"   • Pacientes normales: {normales}");
+            reporte.AppendLine();
+
+            reporte.AppendLine("🏥 RESULTADOS DE ATENCIÓN:");
+            reporte.AppendLine($"   • ✅ Exitosa: {exitosos}");
+            reporte.AppendLine($"   • 🔄 Requiere seguimiento: {seguimiento}");
+            reporte.AppendLine($"   • 👨‍⚕️ Derivados a especialista: {derivados}");
+            reporte.AppendLine($"   • 🏥 Hospitalizados: {hospitalizados}");
+            reporte.AppendLine();
+
+            if (totalAtendidos > 0)
+            {
+                reporte.AppendLine("📋 PORCENTAJES:");
+                reporte.AppendLine($"   • Tasa de éxito: {(exitosos * 100.0 / totalAtendidos):0.0}%");
+                reporte.AppendLine($"   • Pacientes urgentes: {(urgentes * 100.0 / totalAtendidos):0.0}%");
+                reporte.AppendLine($"   • Necesitan seguimiento: {(seguimiento * 100.0 / totalAtendidos):0.0}%");
+                reporte.AppendLine();
+            }
+
+            reporte.AppendLine("📝 DETALLE POR PACIENTE:");
+            reporte.AppendLine("-------------------------------------------");
+
+            var historialDelDia = gestor.GetHistorialDelDia(DateTime.Today);
+            if (historialDelDia.Count > 0)
+            {
+                foreach (var registro in historialDelDia)
+                {
+                    string prioridad = registro.Paciente.Prioridad == 1 ? "URGENTE" : "Normal";
+                    string resumenDiagnostico = registro.Diagnostico.Length > 30 ?
+                        registro.Diagnostico.Substring(0, 30) + "..." : registro.Diagnostico;
+
+                    reporte.AppendLine($"   • {registro.FechaAtencion:HH:mm} - {registro.Paciente.Nombre}");
+                    reporte.AppendLine($"     {registro.Estado} | {prioridad} | {resumenDiagnostico}");
+                    reporte.AppendLine();
+                }
+            }
+            else
+            {
+                reporte.AppendLine("   No hay registros para el día de hoy");
+                reporte.AppendLine();
+            }
+
+            reporte.AppendLine("===========================================");
+            reporte.AppendLine($"📋 Reporte generado: {DateTime.Now:dd/MM/yyyy HH:mm}");
+
+            
+            txtReporteDetallado.Text = reporte.ToString();
+        }
+
+        private void tabReportes_Enter(object sender, EventArgs e)
+        {
+            GenerarReporteDelDia();
         }
     }
 }

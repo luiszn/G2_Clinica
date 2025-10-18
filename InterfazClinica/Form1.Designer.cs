@@ -67,7 +67,17 @@
             this.lblTratamiento = new System.Windows.Forms.Label();
             this.txtDiagnostico = new System.Windows.Forms.TextBox();
             this.lblDiagnostico = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabReportes = new System.Windows.Forms.TabPage();
+            this.gbEstadisticas = new System.Windows.Forms.GroupBox();
+            this.lblTotalAtendidos = new System.Windows.Forms.Label();
+            this.lblExitosos = new System.Windows.Forms.Label();
+            this.lblSeguimiento = new System.Windows.Forms.Label();
+            this.lblTiempoPromedio = new System.Windows.Forms.Label();
+            this.lblDerivados = new System.Windows.Forms.Label();
+            this.btnGenerarReporte = new System.Windows.Forms.Button();
+            this.btnExportarPDF = new System.Windows.Forms.Button();
+            this.gbReporteDetallado = new System.Windows.Forms.GroupBox();
+            this.txtReporteDetallado = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -82,6 +92,9 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorialCompleto)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.tabReportes.SuspendLayout();
+            this.gbEstadisticas.SuspendLayout();
+            this.gbReporteDetallado.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -89,7 +102,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabAtencion);
             this.tabControl1.Controls.Add(this.tabHistorial);
-            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabReportes);
             this.tabControl1.Location = new System.Drawing.Point(0, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -473,15 +486,116 @@
             this.lblDiagnostico.TabIndex = 1;
             this.lblDiagnostico.Text = "Diagnóstico:";
             // 
-            // tabPage4
+            // tabReportes
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1030, 688);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Reportes";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabReportes.Controls.Add(this.gbReporteDetallado);
+            this.tabReportes.Controls.Add(this.gbEstadisticas);
+            this.tabReportes.Location = new System.Drawing.Point(4, 25);
+            this.tabReportes.Name = "tabReportes";
+            this.tabReportes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabReportes.Size = new System.Drawing.Size(1030, 688);
+            this.tabReportes.TabIndex = 3;
+            this.tabReportes.Text = "Reportes";
+            this.tabReportes.UseVisualStyleBackColor = true;
+            // 
+            // gbEstadisticas
+            // 
+            this.gbEstadisticas.Controls.Add(this.btnExportarPDF);
+            this.gbEstadisticas.Controls.Add(this.btnGenerarReporte);
+            this.gbEstadisticas.Controls.Add(this.lblDerivados);
+            this.gbEstadisticas.Controls.Add(this.lblTiempoPromedio);
+            this.gbEstadisticas.Controls.Add(this.lblSeguimiento);
+            this.gbEstadisticas.Controls.Add(this.lblExitosos);
+            this.gbEstadisticas.Controls.Add(this.lblTotalAtendidos);
+            this.gbEstadisticas.Location = new System.Drawing.Point(5, 4);
+            this.gbEstadisticas.Name = "gbEstadisticas";
+            this.gbEstadisticas.Size = new System.Drawing.Size(1020, 397);
+            this.gbEstadisticas.TabIndex = 0;
+            this.gbEstadisticas.TabStop = false;
+            this.gbEstadisticas.Text = "--ESTADISTICAS";
+            // 
+            // lblTotalAtendidos
+            // 
+            this.lblTotalAtendidos.AutoSize = true;
+            this.lblTotalAtendidos.Location = new System.Drawing.Point(58, 54);
+            this.lblTotalAtendidos.Name = "lblTotalAtendidos";
+            this.lblTotalAtendidos.Size = new System.Drawing.Size(176, 16);
+            this.lblTotalAtendidos.TabIndex = 0;
+            this.lblTotalAtendidos.Text = "Total pacientes atendidos: 0";
+            // 
+            // lblExitosos
+            // 
+            this.lblExitosos.AutoSize = true;
+            this.lblExitosos.Location = new System.Drawing.Point(70, 111);
+            this.lblExitosos.Name = "lblExitosos";
+            this.lblExitosos.Size = new System.Drawing.Size(137, 16);
+            this.lblExitosos.TabIndex = 1;
+            this.lblExitosos.Text = "Consultas exitosas: 0\"";
+            // 
+            // lblSeguimiento
+            // 
+            this.lblSeguimiento.AutoSize = true;
+            this.lblSeguimiento.Location = new System.Drawing.Point(70, 174);
+            this.lblSeguimiento.Name = "lblSeguimiento";
+            this.lblSeguimiento.Size = new System.Drawing.Size(164, 16);
+            this.lblSeguimiento.TabIndex = 2;
+            this.lblSeguimiento.Text = "Requieren seguimiento: 0\"";
+            // 
+            // lblTiempoPromedio
+            // 
+            this.lblTiempoPromedio.AutoSize = true;
+            this.lblTiempoPromedio.Location = new System.Drawing.Point(82, 275);
+            this.lblTiempoPromedio.Name = "lblTiempoPromedio";
+            this.lblTiempoPromedio.Size = new System.Drawing.Size(152, 16);
+            this.lblTiempoPromedio.TabIndex = 3;
+            this.lblTiempoPromedio.Text = "Tiempo promedio: 0 min";
+            // 
+            // lblDerivados
+            // 
+            this.lblDerivados.AutoSize = true;
+            this.lblDerivados.Location = new System.Drawing.Point(70, 224);
+            this.lblDerivados.Name = "lblDerivados";
+            this.lblDerivados.Size = new System.Drawing.Size(83, 16);
+            this.lblDerivados.TabIndex = 4;
+            this.lblDerivados.Text = "Derivados: 0";
+            // 
+            // btnGenerarReporte
+            // 
+            this.btnGenerarReporte.Location = new System.Drawing.Point(413, 54);
+            this.btnGenerarReporte.Name = "btnGenerarReporte";
+            this.btnGenerarReporte.Size = new System.Drawing.Size(209, 96);
+            this.btnGenerarReporte.TabIndex = 5;
+            this.btnGenerarReporte.Text = "GENERAR REPORTE DIARIO";
+            this.btnGenerarReporte.UseVisualStyleBackColor = true;
+            // 
+            // btnExportarPDF
+            // 
+            this.btnExportarPDF.Location = new System.Drawing.Point(413, 204);
+            this.btnExportarPDF.Name = "btnExportarPDF";
+            this.btnExportarPDF.Size = new System.Drawing.Size(225, 121);
+            this.btnExportarPDF.TabIndex = 6;
+            this.btnExportarPDF.Text = "EXPORTAR A PDF";
+            this.btnExportarPDF.UseVisualStyleBackColor = true;
+            // 
+            // gbReporteDetallado
+            // 
+            this.gbReporteDetallado.Controls.Add(this.txtReporteDetallado);
+            this.gbReporteDetallado.Location = new System.Drawing.Point(4, 408);
+            this.gbReporteDetallado.Name = "gbReporteDetallado";
+            this.gbReporteDetallado.Size = new System.Drawing.Size(1020, 274);
+            this.gbReporteDetallado.TabIndex = 1;
+            this.gbReporteDetallado.TabStop = false;
+            this.gbReporteDetallado.Text = "--REPORTE DETALLADO--";
+            // 
+            // txtReporteDetallado
+            // 
+            this.txtReporteDetallado.Location = new System.Drawing.Point(38, 39);
+            this.txtReporteDetallado.Multiline = true;
+            this.txtReporteDetallado.Name = "txtReporteDetallado";
+            this.txtReporteDetallado.ReadOnly = true;
+            this.txtReporteDetallado.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtReporteDetallado.Size = new System.Drawing.Size(894, 196);
+            this.txtReporteDetallado.TabIndex = 0;
             // 
             // Form1
             // 
@@ -508,6 +622,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorialCompleto)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tabReportes.ResumeLayout(false);
+            this.gbEstadisticas.ResumeLayout(false);
+            this.gbEstadisticas.PerformLayout();
+            this.gbReporteDetallado.ResumeLayout(false);
+            this.gbReporteDetallado.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -518,7 +637,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabAtencion;
         private System.Windows.Forms.TabPage tabHistorial;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabReportes;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvPacientesEnEspera;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -554,6 +673,16 @@
         private System.Windows.Forms.Label lblTratamiento;
         private System.Windows.Forms.TextBox txtDiagnostico;
         private System.Windows.Forms.Label lblDiagnostico;
+        private System.Windows.Forms.GroupBox gbEstadisticas;
+        private System.Windows.Forms.GroupBox gbReporteDetallado;
+        private System.Windows.Forms.TextBox txtReporteDetallado;
+        private System.Windows.Forms.Button btnExportarPDF;
+        private System.Windows.Forms.Button btnGenerarReporte;
+        private System.Windows.Forms.Label lblDerivados;
+        private System.Windows.Forms.Label lblTiempoPromedio;
+        private System.Windows.Forms.Label lblSeguimiento;
+        private System.Windows.Forms.Label lblExitosos;
+        private System.Windows.Forms.Label lblTotalAtendidos;
     }
 }
 
