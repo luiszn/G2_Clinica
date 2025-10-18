@@ -156,7 +156,7 @@ namespace InterfazClinica
             btnFinalizarAtencion.Click += btnFinalizarAtencion_Click;
             btnActualizarLista.Click += btnActualizarLista_Click;
             btnVerDetalles.Click += btnVerDetalles_Click;
-
+            tabAtencion.Enter += tabAtencion_Enter;
             // Configurar DataGridView de la cola de espera
             ConfigurarDataGridViewColaEspera();
 
@@ -218,6 +218,7 @@ namespace InterfazClinica
                     lblPacienteActual.Text = "Ningún paciente en atención";
                     MessageBox.Show("Atención finalizada", "Éxito",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tabControl1.SelectedTab = tabHistorial;
                 }
             }
             else
@@ -352,6 +353,7 @@ namespace InterfazClinica
             // Actualizar cola de espera
             ActualizarColaEspera();
         }
+
         private void tabAtencion_Enter(object sender, EventArgs e)
         {
             ActualizarInterfazAtencion();
