@@ -132,7 +132,7 @@ namespace InterfazClinica
                         prioridadTexto
                     );
 
-                    // Colorear filas según prioridad
+                    
                     int lastIndex = dgvPacientesEnEspera.Rows.Count - 1;
                     if (paciente.Prioridad == 1)
                     {
@@ -150,16 +150,13 @@ namespace InterfazClinica
         }
         private void ConfigurarPestaña2()
         {
-            // Conectar eventos de la pestaña 2 - SOLO EN CÓDIGO
             btnLlamarSiguiente.Click += btnLlamarSiguiente_Click;
             btnFinalizarAtencion.Click += btnFinalizarAtencion_Click;
             btnActualizarLista.Click += btnActualizarLista_Click;
             btnVerDetalles.Click += btnVerDetalles_Click;
             tabAtencion.Enter += tabAtencion_Enter;
-            // Configurar DataGridView de la cola de espera
             ConfigurarDataGridViewColaEspera();
 
-            // Actualizar interfaz inicial
             ActualizarInterfazAtencion();
         }
 
@@ -176,7 +173,6 @@ namespace InterfazClinica
 
                     if (siguientePaciente != null)
                     {
-                        // Mostrar paciente en consulta
                         string prioridadTexto = siguientePaciente.Prioridad == 1 ? "URGENTE" : "Normal";
                         lblPacienteActual.Text = $"{siguientePaciente.Nombre} ({siguientePaciente.Edad} años) - {prioridadTexto}";
 
@@ -213,14 +209,11 @@ namespace InterfazClinica
 
                 if (result == DialogResult.Yes)
                 {
-                    // ❌ QUITA ESTA LÍNEA - Está borrando el paciente
-                    // gestor.FinalizarAtencionActual(); 
 
                     lblPacienteActual.Text = "Ningún paciente en atención";
                     MessageBox.Show($"Paciente {paciente.Nombre} listo para registrar en historial", "Éxito",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Ir automáticamente a pestaña 3
                     tabControl1.SelectedTab = tabHistorial;
                 }
             }
@@ -341,7 +334,6 @@ namespace InterfazClinica
 
         private void ActualizarInterfazAtencion()
         {
-            // Actualizar paciente actual
             var pacienteActual = gestor.GetPacienteEnAtencion();
             if (pacienteActual != null)
             {
@@ -353,7 +345,6 @@ namespace InterfazClinica
                 lblPacienteActual.Text = "Ningún paciente en atención";
             }
 
-            // Actualizar cola de espera
             ActualizarColaEspera();
         }
 
